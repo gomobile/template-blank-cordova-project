@@ -6,6 +6,7 @@
 
 
 /*jslint browser:true, devel:true, white:true, vars:true */
+/*jshint -W079 */
 /*global $:false, intel:false, app:false, dev:false */
 /*global myEventHandler:false */
 
