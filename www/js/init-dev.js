@@ -17,9 +17,10 @@ var dev = dev || {} ;
 // Use performance counter if it is available, otherwise, use seconds since 1970
 
 if( window.performance && performance.now ) {
-    dev.timeStamp = function() { return performance.now() ; } ;
+    dev.timeStamp = function() { return performance.now().toFixed(3) ; } ;
 } else {
-    dev.timeStamp = function() { return Date.now() ; } ;
+    dev.timeStart = Date.now() ;        // feeble zero point for relative time in ms
+    dev.timeStamp = function() { return (Date.now() - dev.timeStart) ; } ;
 }
 
 
