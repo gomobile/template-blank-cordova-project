@@ -6,11 +6,12 @@
 
 
 /*jslint browser:true, devel:true, white:true, vars:true */
-/*global $:false, intel:false */
+/*global $:false, intel:false app:false, dev:false */
+/*global cordova:false */
 
 
 
-// This file contains your main event handlers, the center of your application.
+// This file contains your event handlers, the center of your application.
 
 
 function myEventHandler() {
@@ -23,5 +24,4 @@ function myEventHandler() {
     console.log(fName, "function exit") ;
 }
 
-
-// and additional event handlers here...
+// ...additional event handlers here...
