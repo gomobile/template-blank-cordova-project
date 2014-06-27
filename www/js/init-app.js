@@ -8,7 +8,7 @@
 /*jslint browser:true, devel:true, white:true, vars:true */
 /*jshint -W079 */
 /*global $:false, intel:false, app:false, dev:false */
-/*global myEventHandler:false */
+/*global myEventHandler:false, cordova:false, device:false */
 
 
 
@@ -40,7 +40,7 @@ app.initApplication = function() {
     // Initialize app event handlers.
     // TODO: configure to work with both touch and click events (mouse + touch)
 
-    var el ;
+    var el, str ;
 
     el = document.getElementById("id_btnHello") ;
     el.addEventListener("touchend",myEventHandler,false) ;
@@ -49,6 +49,40 @@ app.initApplication = function() {
 
     app.showDeviceReady() ;                 // this is specific to this demo
     app.hideSplashScreen() ;                // this is optional for your app
+
+    // ...and whatever else you want to do now that the app has started...
+
+    el = document.getElementById("id_textArea") ;                   // print some interesting junk
+    el.innerHTML = JSON.stringify(dev.isDeviceReady, null, 1) ;     // to the <textarea> tag
+    el.appendChild(document.createTextNode("\n")) ;
+
+    if( window.device && device.cordova ) {                         // old Cordova 2.x version detection
+        str = "cordova.version: " + device.cordova ;                // print the cordova version string...
+        console.log(str) ;                                          // ...to the console and
+        el.appendChild(document.createTextNode(str + "\n")) ;       // ...to the <textarea> tag
+        str = "device.model: " + device.model ;
+        console.log(str) ;
+        el.appendChild(document.createTextNode(str + "\n")) ;
+        str = "device.platform: " + device.platform ;
+        console.log(str) ;
+        el.appendChild(document.createTextNode(str + "\n")) ;
+        str = "device.version: " + device.version ;
+        console.log(str) ;
+        el.appendChild(document.createTextNode(str + "\n")) ;
+    }
+
+    if( window.cordova && cordova.version ) {
+        str = "cordova.version: " + cordova.version ;               // print new Cordova 3.x version string...
+        console.log(str) ;                                          // ...to the console and
+        el.appendChild(document.createTextNode(str + "\n")) ;       // ...to the <textarea> tag
+
+        if( cordova.require ) {                                     // print the included cordova plugins
+            str = JSON.stringify(cordova.require('cordova/plugin_list').metadata, null, 1) ;
+            console.log(str) ;
+            el.appendChild(document.createTextNode(str + "\n")) ;
+        }
+    }
+
 
     // app initialization is done
     // app event handlers are ready
@@ -94,9 +128,6 @@ app.showDeviceReady = function() {
         receivedElement.setAttribute('style', 'display:none;') ;
         failedElement.setAttribute('style', 'display:block;') ;
     }
-
-    el = document.getElementById("id_textArea") ;
-    el.innerHTML = JSON.stringify(dev.isDeviceReady, null, 1) ;
 
     console.log(fName, "exit") ;
 } ;
