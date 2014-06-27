@@ -47,6 +47,10 @@ app.initApplication = function() {
 
     // after init is all done is a good time to remove our splash screen
 
+    // see https://github.com/01org/appframework/blob/master/documentation/detail/%24.ui.launch.md
+    // do this if you disabled App Framework autolaunch (in index.html, for example)
+    // $.ui.launch() ;
+
     app.showDeviceReady() ;                 // this is specific to this demo
     app.hideSplashScreen() ;                // this is optional for your app
 
