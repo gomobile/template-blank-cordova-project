@@ -62,6 +62,7 @@ dev.onDeviceReady = function() {
         dev.isDeviceReady.e_fnDeviceReady__ = dev.timeStamp() ;
     }
 
+    // TODO: change this to initiate a custom event called AppReady
     // All device initialization is done, call the main app init function...
     app.initApplication() ;
 
@@ -129,7 +130,7 @@ dev.onDeviceReadyXDK = function() {
     window.setTimeout(dev.onDeviceReady, 250) ; // a little insurance on the readiness
 } ;
 
-// This is a bogus onDeviceReady for browser scenario, mostly for code symmetry.
+// This is a false onDeviceReady for browser scenario, mostly for code symmetry and fail-safe.
 
 dev.onDeviceReadyBrowser = function() {
     dev.isDeviceReady.f_browser________ = dev.timeStamp() ;
@@ -160,19 +161,17 @@ dev.initDeviceReady = function() {
 
     document.addEventListener("intel.xdk.device.ready", dev.onDeviceReadyXDK, false) ;
     document.addEventListener("deviceready", dev.onDeviceReadyCordova, false) ;
+    window.setTimeout(dev.onDeviceReadyBrowser, 7000) ;
 
-    // TODO: might need to double-check for Cordova deviceready, shouldn't be required...
-    // if logic needs further investigation in Cordova, legacy and debug containers
+    // last one, above, is fail-safe, in case we got no device ready event from Cordova or XDK
+    // Cordova will timeout after five seconds, so we choose a longer timeout to be conservative
+    // very end of this file is the fail-safe, fail-safe in case all else fails!
+
+    // TODO: might want to double-check for Cordova deviceready, shouldn't be required...
+    // "if" logic (below) needs further investigation in Cordova, legacy and debug containers
     // 0 = Non-sticky, 1 = Sticky non-fired, 2 = Sticky fired.
     // if( window.channel && channel.onCordovaReady && (channel.onCordovaReady.state === 2) )
         // dev.onDeviceReadyCordova() ;
-
-    window.setTimeout(function() {
-        if( !window.intel && !window.Cordova )                  // we might be "in a browser" or a web app
-            window.setTimeout(dev.onDeviceReadyBrowser, 250) ;  // this delay is superfluous, but doesn't hurt
-        },
-        3000                                    // give real device ready events a chance first, just in case
-    ) ;
 
     console.log(fName, "navigator.vendor:", navigator.vendor) ;
     console.log(fName, "navigator.platform:", navigator.platform) ;
@@ -189,7 +188,7 @@ dev.initDeviceReady = function() {
 // ...makes it easier to init device-dependent and device-independent code in one place.
 
 // NOTE: In most cases, you can leave this code alone and use it as is.
-// NOTE: document.readyState seems to be more reliable, but is not omnipresent.
+// NOTE: document.readyState seems to be more reliable, but seems not to be omnipresent.
 // NOTE: Delay after "load" event is added because some webviews trigger prematurely.
 
 if( document.readyState ) {                     // some devices don't support this, why???
@@ -203,4 +202,4 @@ if( document.readyState ) {                     // some devices don't support th
 }
 console.log("addEventListener:", dev.timeStamp()) ;
 window.addEventListener("load", window.setTimeout(dev.initDeviceReady,500), false) ;
-window.setTimeout(dev.initDeviceReady,7000) ;   // fail-safe, in case we miss above events
+window.setTimeout(dev.initDeviceReady,10000) ;  // fail-safe fail-safe, just in case we miss all events!
