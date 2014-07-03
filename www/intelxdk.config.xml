@@ -4,8 +4,8 @@
     xmlns="http://www.w3.org/ns/widgets"
     xmlns:intelxdk="http://xdk.intel.com/ns/v1"
     id="com.xmnboy.xdk.blankxdkcordovaproject"
-    version="2014.06.26"
-    versionCode="20140626" >
+    version="2014.07.02"
+    versionCode="20140702" >
 
     <name>Blank XDK Cordova Project (XDK)</name>
     <author email="paul.a.fischer@intel.com" href="xdk.intel.com">Paul Fischer</author>
