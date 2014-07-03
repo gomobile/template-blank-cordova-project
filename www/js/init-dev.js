@@ -14,7 +14,7 @@
 
 var dev = dev || {} ;
 
-// Use performance counter if it is available, otherwise, use seconds since 1970
+// Use performance counter if it is available, otherwise, use milliseconds since 1970
 
 if( window.performance && performance.now ) {
     dev.timeStamp = function() { return performance.now().toFixed(3) ; } ;
@@ -33,10 +33,10 @@ if( window.performance && performance.now ) {
 dev.isDeviceReady = {                   // listed in approximate order expected
     a_startTime______:dev.timeStamp(),  // when we started execution of this module
     b_fnDocumentReady:false,            // detected document.readyState == "complete"
-    c_cordova________:false,            // detected cordova device ready event
-    d_xdk____________:false,            // detected xdk device ready event
+    c_cordova_ready__:false,            // detected cordova device ready event
+    d_xdk_ready______:false,            // detected xdk device ready event
     e_fnDeviceReady__:false,            // entered onDeviceReady()
-    f_browser________:false             // detected browser container
+    f_browser_ready__:false             // detected browser container
 } ;
 
 
@@ -115,27 +115,27 @@ dev.onDeviceReady = function() {
 // If this event is called first, we should be in the Cordova container.
 
 dev.onDeviceReadyCordova = function() {
-    dev.isDeviceReady.c_cordova________ = dev.timeStamp() ;
+    dev.isDeviceReady.c_cordova_ready__ = dev.timeStamp() ;
     var fName = "dev.onDeviceReadyCordova():" ;
-    console.log(fName, dev.isDeviceReady.c_cordova________) ;
+    console.log(fName, dev.isDeviceReady.c_cordova_ready__) ;
     window.setTimeout(dev.onDeviceReady, 250) ; // a little insurance on the readiness
 } ;
 
 // If this event is called first, we should be in the legacy XDK container.
 
 dev.onDeviceReadyXDK = function() {
-    dev.isDeviceReady.d_xdk____________ = dev.timeStamp() ;
+    dev.isDeviceReady.d_xdk_ready______ = dev.timeStamp() ;
     var fName = "dev.onDeviceReadyXDK():" ;
-    console.log(fName, dev.isDeviceReady.d_xdk____________) ;
+    console.log(fName, dev.isDeviceReady.d_xdk_ready______) ;
     window.setTimeout(dev.onDeviceReady, 250) ; // a little insurance on the readiness
 } ;
 
 // This is a false onDeviceReady for browser scenario, mostly for code symmetry and fail-safe.
 
 dev.onDeviceReadyBrowser = function() {
-    dev.isDeviceReady.f_browser________ = dev.timeStamp() ;
+    dev.isDeviceReady.f_browser_ready__ = dev.timeStamp() ;
     var fName = "dev.onDeviceReadyBrowser():" ;
-    console.log(fName, dev.isDeviceReady.f_browser________) ;
+    console.log(fName, dev.isDeviceReady.f_browser_ready__) ;
     window.setTimeout(dev.onDeviceReady, 250) ; // a little insurance on the readiness
 } ;
 
