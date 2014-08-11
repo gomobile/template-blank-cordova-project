@@ -19,9 +19,18 @@ function myEventHandler() {
     var fName = "myEventHandler():" ;
     console.log(fName, "function entry") ;
 
-    alert("It worked!") ;
+    if( window.Cordova && dev.isDeviceReady.c_cordova_ready__ ) {
+        alert("It worked! Cordova device ready detected @ " + dev.isDeviceReady.c_cordova_ready__ + " milliseconds!") ;
+    }
+    else if( window.intel && intel.xdk && dev.isDeviceReady.d_xdk_ready______ ) {
+        alert("It worked! Intel XDK device ready detected @ "  + dev.isDeviceReady.d_xdk_ready______ + " milliseconds!") ;
+    }
+    else {
+        alert("Bad device ready detected or none available because we're running in a browser.") ;
+    }
 
     console.log(fName, "function exit") ;
 }
+
 
 // ...additional event handlers here...
