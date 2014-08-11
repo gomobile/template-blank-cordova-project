@@ -5,7 +5,7 @@
       "type": "Import",
       "src": "",
       "projectGuid": "142cf96f-ba32-415b-93dc-bec10e6d3679",
-      "lastModifiedDate": 1407540443070,
+      "lastModifiedDate": 1407724191712,
       "creationDate": 1394489018036
     },
     "sourceDirectory": "www",
@@ -32,192 +32,16 @@
     "cordovaPluginsDirectory": "plugins",
     "cordovaPlugins": [
       {
-        "id": "org.apache.cordova.device-motion",
-        "version": "0.2.4",
-        "selectedState": "Auto",
-        "data": {},
-        "paramvals": {}
-      },
-      {
-        "id": "org.apache.cordova.camera",
-        "version": "0.2.9",
-        "selectedState": "Auto",
-        "data": {},
-        "paramvals": {}
-      },
-      {
-        "id": "org.apache.cordova.media-capture",
-        "version": "0.2.8",
-        "selectedState": "Auto",
-        "data": {},
-        "paramvals": {}
-      },
-      {
-        "id": "org.apache.cordova.device-orientation",
-        "version": "0.3.6",
-        "selectedState": "Auto",
-        "data": {},
-        "paramvals": {}
-      },
-      {
-        "id": "org.apache.cordova.network-information",
-        "version": "0.2.8",
-        "selectedState": "Auto",
-        "data": {},
-        "paramvals": {}
-      },
-      {
-        "id": "org.apache.cordova.contacts",
-        "version": "0.2.8",
-        "selectedState": "Auto",
+        "id": "org.apache.cordova.splashscreen",
+        "version": "0.2.5",
+        "selectedState": "Included",
         "data": {},
         "paramvals": {}
       },
       {
         "id": "org.apache.cordova.device",
         "version": "0.2.5",
-        "selectedState": "Auto",
-        "data": {},
-        "paramvals": {}
-      },
-      {
-        "id": "org.apache.cordova.battery-status",
-        "version": "0.2.5",
-        "selectedState": "Auto",
-        "data": {},
-        "paramvals": {}
-      },
-      {
-        "id": "org.apache.cordova.file",
-        "version": "0.2.5",
-        "selectedState": "Auto",
-        "data": {},
-        "paramvals": {}
-      },
-      {
-        "id": "org.apache.cordova.geolocation",
-        "version": "0.3.5",
-        "selectedState": "Auto",
-        "data": {},
-        "paramvals": {}
-      },
-      {
-        "id": "org.apache.cordova.globalization",
-        "version": "0.2.7",
-        "selectedState": "Auto",
-        "data": {},
-        "paramvals": {}
-      },
-      {
-        "id": "org.apache.cordova.inappbrowser",
-        "version": "0.3.0",
-        "selectedState": "Auto",
-        "data": {},
-        "paramvals": {}
-      },
-      {
-        "id": "org.apache.cordova.media",
-        "version": "0.2.8",
-        "selectedState": "Auto",
-        "data": {},
-        "paramvals": {}
-      },
-      {
-        "id": "org.apache.cordova.dialogs",
-        "version": "0.2.5",
-        "selectedState": "Auto",
-        "data": {},
-        "paramvals": {}
-      },
-      {
-        "id": "org.apache.cordova.vibration",
-        "version": "0.3.5",
-        "selectedState": "Auto",
-        "data": {},
-        "paramvals": {}
-      },
-      {
-        "id": "org.apache.cordova.splashscreen",
-        "version": "0.2.5",
-        "selectedState": "Auto",
-        "data": {},
-        "paramvals": {}
-      },
-      {
-        "id": "intel.xdk.accelerometer",
-        "selectedState": "Auto",
-        "data": {},
-        "paramvals": {}
-      },
-      {
-        "id": "intel.xdk.audio",
-        "selectedState": "Auto",
-        "data": {},
-        "paramvals": {}
-      },
-      {
-        "id": "intel.xdk.base",
-        "selectedState": "Auto",
-        "data": {},
-        "paramvals": {}
-      },
-      {
-        "id": "intel.xdk.cache",
-        "selectedState": "Auto",
-        "data": {},
-        "paramvals": {}
-      },
-      {
-        "id": "intel.xdk.camera",
-        "selectedState": "Auto",
-        "data": {},
-        "paramvals": {}
-      },
-      {
-        "id": "intel.xdk.contacts",
-        "selectedState": "Auto",
-        "data": {},
-        "paramvals": {}
-      },
-      {
-        "id": "intel.xdk.device",
-        "selectedState": "Auto",
-        "data": {},
-        "paramvals": {}
-      },
-      {
-        "id": "intel.xdk.display",
-        "selectedState": "Auto",
-        "data": {},
-        "paramvals": {}
-      },
-      {
-        "id": "intel.xdk.facebook",
-        "selectedState": "Auto",
-        "data": {},
-        "paramvals": {}
-      },
-      {
-        "id": "intel.xdk.file",
-        "selectedState": "Auto",
-        "data": {},
-        "paramvals": {}
-      },
-      {
-        "id": "intel.xdk.geolocation",
-        "selectedState": "Auto",
-        "data": {},
-        "paramvals": {}
-      },
-      {
-        "id": "intel.xdk.notification",
-        "selectedState": "Auto",
-        "data": {},
-        "paramvals": {}
-      },
-      {
-        "id": "intel.xdk.player",
-        "selectedState": "Auto",
+        "selectedState": "Included",
         "data": {},
         "paramvals": {}
       }
@@ -226,9 +50,12 @@
       "Android": {
         "platform_": "android",
         "name_": "Android",
-        "preferences_": {},
+        "preferences_": {
+          "android-minSdkVersion": "10",
+          "android-targetedSdkVersion": "19"
+        },
         "isActive_": true,
-        "appName_": "blank-xdk-cordova-project",
+        "appName_": "Blank Intel XDK Cordova Project",
         "appID_": "not.yet.specified",
         "appAccess_": "*",
         "icons_": [],
@@ -239,14 +66,20 @@
         "cordovaCLIVersion_": "3.3",
         "crosswalkVersion_": "stable",
         "appVersion_": "1.0.0",
-        "runtime_": "Cordova 3.x"
+        "runtime_": "Cordova 3.x",
+        "appDescription_": "Universal init code for Intel XDK and Cordova device ready detection, as well as within browser.",
+        "appAuthor_": "",
+        "appVersionCode_": "1"
       },
       "Android-Crosswalk": {
         "platform_": "android",
         "name_": "Android-Crosswalk",
-        "preferences_": {},
+        "preferences_": {
+          "android-minSdkVersion": "14",
+          "android-targetedSdkVersion": "19"
+        },
         "isActive_": true,
-        "appName_": "blank-xdk-cordova-project",
+        "appName_": "Blank Intel XDK Cordova Project",
         "appID_": "not.yet.specified",
         "appAccess_": "*",
         "icons_": [],
@@ -257,14 +90,19 @@
         "cordovaCLIVersion_": "3.3",
         "crosswalkVersion_": "stable",
         "appVersion_": "1.0.0",
-        "runtime_": "Crosswalk with Cordova 3.x"
+        "runtime_": "Crosswalk with Cordova 3.x",
+        "appDescription_": "Universal init code for Intel XDK and Cordova device ready detection, as well as within browser.",
+        "appAuthor_": "",
+        "appVersionCode_": "1"
       },
       "iOS": {
         "platform_": "ios",
         "name_": "iOS",
-        "preferences_": {},
+        "preferences_": {
+          "ios-target": "5"
+        },
         "isActive_": true,
-        "appName_": "blank-xdk-cordova-project",
+        "appName_": "Blank Intel XDK Cordova Project",
         "appID_": "not.yet.specified",
         "appAccess_": "*",
         "icons_": [],
@@ -275,14 +113,15 @@
         "cordovaCLIVersion_": "3.3",
         "crosswalkVersion_": "stable",
         "appVersion_": "1.0.0",
-        "runtime_": "Cordova 3.x"
+        "runtime_": "Cordova 3.x",
+        "appDescription_": "Universal init code for Intel XDK and Cordova device ready detection, as well as within browser."
       },
       "Windows8": {
         "platform_": "windows8",
         "name_": "Windows8",
         "preferences_": {},
         "isActive_": true,
-        "appName_": "blank-xdk-cordova-project",
+        "appName_": "Blank Intel XDK Cordova Project",
         "appID_": "not.yet.specified",
         "appAccess_": "*",
         "icons_": [],
@@ -293,7 +132,8 @@
         "cordovaCLIVersion_": "3.3",
         "crosswalkVersion_": "stable",
         "appVersion_": "1.0.0.0",
-        "runtime_": "Cordova 3.x"
+        "runtime_": "Cordova 3.x",
+        "appDescription_": "Universal init code for Intel XDK and Cordova device ready detection, as well as within browser."
       },
       "WindowsPhone8": {
         "platform_": "wp8",
