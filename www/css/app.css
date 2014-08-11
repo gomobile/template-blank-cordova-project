@@ -21,29 +21,3 @@ body {
 .align-center {
     text-align: center ;
 }
-
-.event {
-    -webkit-border-radius:4px ;
-    border-radius:4px ;
-/*    color:#ffffff ;*/
-    color:white ;
-/*    background-color:#00008b ;*/
-    background-color:darkblue ;
-    margin:0px 30px ;
-    padding:2px 0px ;
-}
-.event.listening {
-/*    background-color:#f0e68c ;*/
-    background-color:khaki ;
-    display:block ;
-}
-.event.received {
-/*    background-color:#2e8b57 ;*/
-    background-color:seagreen ;
-    display:none ;
-}
-.event.failed {
-/*    background-color:#ffb6c1 ;*/
-    background-color:lightpink ;
-    display:none ;
-}
