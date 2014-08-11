@@ -5,7 +5,7 @@
   * Please see http://software.intel.com/html5/license/samples
   * and the included README.md file for license terms and conditions.
   -->
-<!-- TODO: need README.md and copyright files    -->
+<!-- TODO: need README.md and copyright files -->
 <head>
     <title>A Blank Project</title>
 
@@ -26,8 +26,8 @@
 -->
 
     <!-- <meta name="viewport" content="width=device-width, initial-scale=1"> -->
-    <!-- <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no"> -->
-    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=yes, minimum-scale=1, maximum-scale=2">
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+    <!-- <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=yes, minimum-scale=1, maximum-scale=2"> -->
 
     <style>
     /* following three (cascaded) are equivalent to above three meta viewport statements */
@@ -35,11 +35,12 @@
     /* see http://dev.w3.org/csswg/css-device-adapt/ */
         @-ms-viewport { width: 100vw ; zoom: 100% ; }                           @viewport { width: 100vw ; zoom: 100% ; }
         @-ms-viewport { user-zoom: fixed ; }                                    @viewport { user-zoom: fixed ; }
-        @-ms-viewport { user-zoom: zoom ; min-zoom: 100% ; max-zoom: 200% ; }   @viewport { user-zoom: zoom ; min-zoom: 100% ; max-zoom: 200% ; }
+        /*@-ms-viewport { user-zoom: zoom ; min-zoom: 100% ; max-zoom: 200% ; }   @viewport { user-zoom: zoom ; min-zoom: 100% ; max-zoom: 200% ; }*/
     </style>
 
 <!-- See long explanation at the bottom of this file for info regarding placement of JS libraries. -->
-<!-- These libraries references (below) are just examples to give you the general idea... -->
+<!-- These library references (below) are just examples to give you the general idea... -->
+    <!-- <script src="lib/ft/fastclick.js"></script> -->
     <!-- <script src="lib/jq/jquery.js"></script> -->
     <!-- <script src="lib/af/jq.appframework.js"></script> -->
     <!-- <script src="lib/af/appframework.ui.js"></script> -->
@@ -49,36 +50,20 @@
 <!--
     <script>
         $.ui.autoLaunch = false ;       // if you're using App Framework, you might want to do this
-        // and then use $.ui.launch() ; in the app.initApplication() function
+        // and then use $.ui.launch() in the app.initApplication() function
         // see https://github.com/01org/appframework/blob/master/documentation/detail/%24.ui.launch.md
     </script>
 -->
-    <link rel="stylesheet" href="css/normalize.css">
     <link rel="stylesheet" href="css/app.css">
 </head>
 
 
-
 <body>
     <h1 class="align-center">A Blank Project</h1>
-    <h2 class="align-center" id="id_cordova">Indicate ready event type here...</h2>
-
-    <div class="align-center" id="id_deviceReady">
-        <p class="event listening">Waiting for System Ready Event...</p>
-        <p class="event received">System Ready Event Detected!</p>
-        <p class="event failed">No Device Ready Event Detected...</p>
-    </div>
     <br>
-
     <p class="align-center">
         <input type="button" id="id_btnHello" value="Touch Me">
     </p>
-    <br>
-
-    <div class="align-center" style="font-family:monospace">
-        <textarea id="id_textArea" class="align-left" style="border:1px solid black; height:20rem; width:85%" readonly="readonly" wrap="off">Startup timing data here...</textarea>
-    </div>
-
 
 <!--
     Recommended JavaScript library load order:
@@ -156,7 +141,7 @@
     <script src="js/init-app.js"></script>
     <script src="js/init-dev.js"></script>
 
-    <!-- Place your remote debugging (weinre) script URL here, do not include it as part of your release builds -->
+    <!-- Place your remote debugging (weinre) script URL here (from the Test tab), do not include it as part of your release builds -->
     <!-- <script src="http://debug-software.intel.com/target/target-script-min.js#insertabiglongfunkynumberfromthexdkstesttab"></script> -->
 </body>
 </html>
