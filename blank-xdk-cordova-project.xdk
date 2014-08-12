@@ -5,7 +5,7 @@
       "type": "Import",
       "src": "",
       "projectGuid": "142cf96f-ba32-415b-93dc-bec10e6d3679",
-      "lastModifiedDate": 1407724191712,
+      "lastModifiedDate": 1407822334524,
       "creationDate": 1394489018036
     },
     "sourceDirectory": "www",
@@ -32,14 +32,14 @@
     "cordovaPluginsDirectory": "plugins",
     "cordovaPlugins": [
       {
-        "id": "org.apache.cordova.splashscreen",
+        "id": "org.apache.cordova.device",
         "version": "0.2.5",
         "selectedState": "Included",
         "data": {},
         "paramvals": {}
       },
       {
-        "id": "org.apache.cordova.device",
+        "id": "org.apache.cordova.splashscreen",
         "version": "0.2.5",
         "selectedState": "Included",
         "data": {},
@@ -65,7 +65,7 @@
         "excludedLibraries_": "",
         "cordovaCLIVersion_": "3.3",
         "crosswalkVersion_": "stable",
-        "appVersion_": "1.0.0",
+        "appVersion_": "0.0.1",
         "runtime_": "Cordova 3.x",
         "appDescription_": "Universal init code for Intel XDK and Cordova device ready detection, as well as within browser.",
         "appAuthor_": "",
@@ -89,7 +89,7 @@
         "excludedLibraries_": "",
         "cordovaCLIVersion_": "3.3",
         "crosswalkVersion_": "stable",
-        "appVersion_": "1.0.0",
+        "appVersion_": "0.0.1",
         "runtime_": "Crosswalk with Cordova 3.x",
         "appDescription_": "Universal init code for Intel XDK and Cordova device ready detection, as well as within browser.",
         "appAuthor_": "",
@@ -112,14 +112,17 @@
         "excludedLibraries_": "",
         "cordovaCLIVersion_": "3.3",
         "crosswalkVersion_": "stable",
-        "appVersion_": "1.0.0",
+        "appVersion_": "0.0.1",
         "runtime_": "Cordova 3.x",
         "appDescription_": "Universal init code for Intel XDK and Cordova device ready detection, as well as within browser."
       },
       "Windows8": {
         "platform_": "windows8",
         "name_": "Windows8",
-        "preferences_": {},
+        "preferences_": {
+          "windows-publisher-display-name": "",
+          "windows-publisher-id": ""
+        },
         "isActive_": true,
         "appName_": "Blank Intel XDK Cordova Project",
         "appID_": "not.yet.specified",
@@ -131,7 +134,7 @@
         "excludedLibraries_": "",
         "cordovaCLIVersion_": "3.3",
         "crosswalkVersion_": "stable",
-        "appVersion_": "1.0.0.0",
+        "appVersion_": "0.0.0.1",
         "runtime_": "Cordova 3.x",
         "appDescription_": "Universal init code for Intel XDK and Cordova device ready detection, as well as within browser."
       },
