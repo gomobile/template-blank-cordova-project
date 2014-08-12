@@ -38,6 +38,7 @@ app.initApplication = function() {
 
     // Initialize app event handlers.
     // TODO: configure to work with both touch and click events (mouse + touch)
+    // try http://msopentech.com/blog/2013/09/16/add-pinch-pointer-events-apache-cordova-phonegap-app/
 
     var el = document.getElementById("id_btnHello") ;
     el.addEventListener("touchend", myEventHandler, false) ;
