@@ -242,5 +242,5 @@ if( document.readyState ) {                     // some devices don't support th
     } ;
 }
 console.log("addEventListener:", dev.timeStamp()) ;
-window.addEventListener("load", window.setTimeout(dev.initDeviceReady,dev.WINDOW_LOAD), false) ;
+window.addEventListener("load", function(){window.setTimeout(dev.initDeviceReady,dev.WINDOW_LOAD);}.bind(dev), false) ;
 window.setTimeout(dev.initDeviceReady, dev.FAIL_SAFE) ;     // fail-safe fail-safe, just in case we miss all events!
