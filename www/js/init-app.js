@@ -41,7 +41,10 @@ app.initApplication = function() {
     // try http://msopentech.com/blog/2013/09/16/add-pinch-pointer-events-apache-cordova-phonegap-app/
 
     var el = document.getElementById("id_btnHello") ;
-    el.addEventListener("touchend", myEventHandler, false) ;
+    if( navigator.msPointerEnabled )
+        el.addEventListener("click", myEventHandler, false) ;
+    else
+        el.addEventListener("touchend", myEventHandler, false) ;
 
     // after init is all done is a good time to remove our splash screen
 
