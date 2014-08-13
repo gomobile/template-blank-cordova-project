@@ -5,7 +5,7 @@
       "type": "Import",
       "src": "",
       "projectGuid": "142cf96f-ba32-415b-93dc-bec10e6d3679",
-      "lastModifiedDate": 1407822334524,
+      "lastModifiedDate": 1407889867236,
       "creationDate": 1394489018036
     },
     "sourceDirectory": "www",
@@ -33,7 +33,7 @@
     "cordovaPlugins": [
       {
         "id": "org.apache.cordova.device",
-        "version": "0.2.5",
+        "version": "0.2.10",
         "selectedState": "Included",
         "data": {},
         "paramvals": {}
