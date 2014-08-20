@@ -43,7 +43,8 @@ window.dev = window.dev || {} ;         // there should only be one of these, bu
 
 if( window.performance && performance.now ) {
     dev.timeStamp = function() { return performance.now().toFixed(3) ; } ;
-} else {
+}
+else {
     dev.timeStart = Date.now() ;        // feeble zero ref for relative time in ms
     dev.timeStamp = function() { return (Date.now() - dev.timeStart) ; } ;
 }
