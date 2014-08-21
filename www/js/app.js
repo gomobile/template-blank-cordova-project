@@ -16,8 +16,6 @@
 
 function myEventHandler() {
     "use strict" ;
-    var fName = "myEventHandler():" ;
-    console.log(fName, "function entry") ;
 
     var ua = navigator.userAgent ;
     var str ;
@@ -33,8 +31,6 @@ function myEventHandler() {
     }
 
     alert(str) ;
-
-    console.log(fName, "function exit") ;
 }
 
 
