@@ -13,9 +13,9 @@
 
 window.app = window.app || {} ;         // there should only be one of these, but...
 
-app.initAppEvents = function() {
+app.initEvents = function() {
     "use strict" ;
-    var fName = "app.initAppEvents():" ;
+    var fName = "app.initEvents():" ;
     console.log(fName, "entry") ;
 
 // Main app init point (where we capture app.Ready event).
@@ -65,13 +65,13 @@ app.initAppEvents = function() {
 
     console.log(fName, "exit") ;
 } ;
-document.addEventListener("app.Ready", app.initAppEvents, false) ;
+document.addEventListener("app.Ready", app.initEvents, false) ;
 
 
 
-app.initAppDebug = function() {
+app.initDebug = function() {
     "use strict" ;
-    var fName = "app.initAppDebug():" ;
+    var fName = "app.initDebug():" ;
     console.log(fName, "entry") ;
 
 // Just a bunch of useful debug console.log() messages.
@@ -95,7 +95,7 @@ app.initAppDebug = function() {
 
     console.log(fName, "exit") ;
 } ;
-document.addEventListener("app.Ready", app.initAppDebug, false) ;
+document.addEventListener("app.Ready", app.initDebug, false) ;
 
 
 
