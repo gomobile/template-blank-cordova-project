@@ -1,27 +1,21 @@
 <!DOCTYPE html>
 <html>
 <!--
-  * Copyright (c) 2014, Paul Fischer, Intel Corporation. All rights reserved.
+  * Copyright (c) 2014, Intel Corporation. All rights reserved.
   * Please see http://software.intel.com/html5/license/samples
   * and the included README.md file for license terms and conditions.
   -->
-<!-- TODO: need README.md and copyright files -->
 <head>
-    <title>A Blank Project</title>
+    <title>Blank Hybrid App Project Template</title>
 
     <meta http-equiv="Content-type" content="text/html; charset=utf-8">
-    <meta name="Copyright" content="&copy; 2014, Paul Fischer, Intel Corporation. All rights reserved.">
+    <meta name="Copyright" content="&copy; 2014, Intel Corporation. All rights reserved.">
 
 <!--
   * The "meta viewport" tag (below) helps your app size appropriately to a device's screen.
   * Note that the meta viewport approach is being phased out in favor of the @viewport CSS rule.
   * For a quick overview of both, see this article:
   *   http://webdesign.tutsplus.com/tutorials/htmlcss-tutorials/quick-tip-dont-forget-the-viewport-meta-tag
-  * Additional info can be found here:
-  *   http://www.paulund.co.uk/understanding-the-viewport-meta-tag
-  *   https://github.com/andreasbovens/understanding-viewport
-  *   http://dev.w3.org/csswg/css-device-adapt/#viewport-meta
-  *   http://dev.opera.com/articles/view/an-introduction-to-meta-viewport-and-viewport
   * To see what happens, try the app on a real device with and without a "meta viewport" tag.
 -->
 
@@ -49,7 +43,8 @@
     <!-- <link rel="stylesheet" href="lib/af/af.ui.css"> -->
 <!--
     <script>
-        $.ui.autoLaunch = false ;       // if you're using App Framework, you might want to do this
+		// if you're using App Framework, you might want to do this
+        $.ui.autoLaunch = false ;
         // and then use $.ui.launch() in the app.initApplication() function
         // see https://github.com/01org/appframework/blob/master/documentation/detail/%24.ui.launch.md
     </script>
@@ -59,7 +54,7 @@
 
 
 <body>
-    <h1 class="align-center">A Blank Project</h1>
+    <h1 class="align-center">A Blank Project Template</h1>
     <br>
     <p class="align-center">
         <input type="button" id="id_btnHello" value="Touch Me">
@@ -77,11 +72,12 @@
 
     <body>
     ...html tags...
+     * optional: weinre debug script tag for remote console debug (see notes).
      * Intel XDK device JavaScript library.
      * Cordova/PhoneGap device JavaScript library.
      * "Device-Dependent" JavaScript libraries.
      * Application JavaScript <script> tags and libraries.
-     * weinre debug script tag for remote console debug.
+     * optional: weinre debug script tag for remote console debug (see notes).
     </body>
 
     JavaScript is being loaded at both ends of the HTML file, in order to coordinate the loading of
@@ -94,26 +90,26 @@
     This insures that you always use the JS code that you debugged against AND that you are not requiring
     a data connection (network connection) to get the app started. If your app startup required a data
     connection to initialize and start interaction with the user, lack of a reliable network connection
-    coud be disasterous. Not to mention this generally results in a faster load time and is much, much
-    friendlier to your end user's data plan and battery.  :-)
+    coud be disasterous. Not to mention it generally results in a slower load time. Loading locally is
+	is much, much friendlier to your end user's data plan and battery.  :-)
 
     NOTE: do not use a directory prefix with intelxdk.js or cordova.js - they are inserted automatically
     by the build system, emulator and other tools and are assumed to be in the index.html source directory.
     You will not find these JS files anywhere in your project, they are "phantom" libraries. If you do see
     copies of these files as part of your project they should be removed to avoid confusing the XDK.
 
-    When building with any of the XDK "Cordova" build systems (e.g., "Cordova for Android") you can
+    When building with any of the XDK Cordova build systems (e.g., "Cordova Hybrid App") you can
     omit the "intelxdk.js" and "xhr.js" script files shown below. It does not hurt to keep them, but
-    they are not used in that environment, they are only needed for the "legacy XDK" build systems.
-    (In the case of the "pure Cordova" build systems, the Cordova and XDK apis are included as plugins
+    they are not used in that environment, they are only needed for the "legacy" XDK build systems.
+    (In the case of the Cordova build system, the Cordova and XDK apis are included as plugins
     and the CORS configuration is specified as a parameter in the build configuration file.)
 
     FINAL VERY IMPORTANT NOTE: If you are using a large number of JavaScript libraries, especially
     third-party libraries (like jQuery, {{ mustache }}, Underscore, etc.) that are "independent" of the
-    device APIs provided by the XDK and Cordova libraries and are independent of your application,
-    app initialization tends to be most successful if you load these libraries BEFORE the Cordova and
-    XDK libraries in the <head> section of your index.html file. Obviously, any libraries that depend
-    on the Cordova or XDK library APIs should be loaded AFTER these device libraries.
+    device APIs provided by the XDK and Cordova libraries, and are independent of your application, your
+    app initialization will be most successful if you load these libraries BEFORE the Cordova and
+    XDK libraries, in the <head> section of your index.html file. Obviously, any code that depends
+    on the Cordova or XDK library APIs should be loaded AFTER the intelxdk.js and cordova.js libraries.
 
     Libraries that are "independent" of the device APIs are libraries that you could use in a desktop
     browser in a normal web page or web app. "Dependent" libraries are, most likely, your own code
@@ -125,11 +121,17 @@
     Because of this added dependency on the underlying native code (device) initialization, you should
     not use the "document ready" event to start your application. You should wait for the "device ready"
     event before you begin your application (if it uses any device APIs); in practice, it is best to wait
-    for both. See the init-dev.js file in this demo app for an example of how to do this.
+    for both. (See the init-dev.js file in this demo app for an example of how to do this, it generates
+	a custom "app.Ready" event that you can trigger off of and just forget about the other events.)
 
-    NOTE: any library that redefines addEventListener() or fiddles with outstanding events may
+    NOTE: *any* library that redefines addEventListener() or fiddles with outstanding events may
     interfere with capturing the "device ready" event and should, therefore, be placed *BEFORE*
     the Cordova and XDK libraries in the load order.
+
+	ALSO: if you use weinre for debugging (ala the Test tab or your own), you may have to experiment with
+	the placement of the weinre script. Two recommended locations are shown below. If these two locations
+	do not work, you may have to experiment. The optimum placement can be app-specific, primarily as a
+	function of the included JavaScript libraries and your initialization.
 -->
 
     <!-- IMPORTANT: Do not include your weinre script tag as part of your release builds! -->
