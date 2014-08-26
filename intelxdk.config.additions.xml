@@ -1,1 +1,2 @@
-<!-- +Android --><preference name="debuggable" value="true" />
+<!-- uncomment the following line to enable building a remote CDT debuggable app for Android 4.4 devices -->
+<!-- <preference name="debuggable" value="true" /> -->
