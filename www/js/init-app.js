@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2013-2014, Paul Fischer, Intel Corporation. All rights reserved.
+ * Copyright (c) 2014, Intel Corporation. All rights reserved.
  * Please see http://software.intel.com/html5/license/samples
  * and the included README.md file for license terms and conditions.
  */
@@ -13,16 +13,18 @@
 
 window.app = window.app || {} ;         // there should only be one of these, but...
 
+
+
+// App init point (runs on custom app.Ready event from init-dev.js).
+// Runs after underlying device native code and webview/browser is ready.
+// Where you should "kick off" your application by initializing app events, etc.
+
+// NOTE: Customize this function to initialize your application, as needed.
+
 app.initEvents = function() {
     "use strict" ;
     var fName = "app.initEvents():" ;
     console.log(fName, "entry") ;
-
-// Main app init point (where we capture app.Ready event).
-// Runs after underlying device native code and webview/browser is ready.
-// Where you should "kick off" your application by initializing app events, etc.
-
-// NOTE: Customize this function to initialize your application.
 
     // initialize third-party libraries and event handlers
 
@@ -37,15 +39,16 @@ app.initEvents = function() {
     // initMyAppCodeNumberEtc() ;
 
     // Initialize app event handlers.
+    // See app.js for a simple example.
     // TODO: configure to work with both touch and click events (mouse + touch)
-    // try http://msopentech.com/blog/2013/09/16/add-pinch-pointer-events-apache-cordova-phonegap-app/
+    // see http://msopentech.com/blog/2013/09/16/add-pinch-pointer-events-apache-cordova-phonegap-app/
 
     var el, evt ;
 
     if( navigator.msPointerEnabled )                            // if on a Windows 8 machine
         evt = "click" ;                                         // let touch become a click event
     else                                                        // else, assume touch events available
-        evt = "touchend" ;                                      // not optimum, but works
+        evt = "touchend" ;                                      // not the optimum solution...
 
     el = document.getElementById("id_btnHello") ;
     el.addEventListener(evt, myEventHandler, false) ;
@@ -69,14 +72,14 @@ document.addEventListener("app.Ready", app.initEvents, false) ;
 
 
 
+// Just a bunch of useful debug console.log() messages.
+// Runs after underlying device native code and webview/browser is ready.
+// The following is just for debug, not required; keep it if you want or get rid of it.
+
 app.initDebug = function() {
     "use strict" ;
     var fName = "app.initDebug():" ;
     console.log(fName, "entry") ;
-
-// Just a bunch of useful debug console.log() messages.
-// Runs after underlying device native code and webview/browser is ready.
-// The following is just for debug, not required; keep it if you want or get rid of it.
 
     if( window.device && device.cordova ) {                     // old Cordova 2.x version detection
         console.log("device.version: " + device.cordova) ;      // print the cordova version string...
@@ -115,7 +118,7 @@ app.hideSplashScreen = function() {
         navigator.splashscreen.hide() ;
     }
     if( window.intel && intel.xdk && intel.xdk.device ) {       // Intel XDK API detected
-        intel.xdk.device.hideSplashScreen() ;                   // redundant with above
+        intel.xdk.device.hideSplashScreen() ;
     }
 
     console.log(fName, "exit") ;
