@@ -1,0 +1,5 @@
+/intelxdk.config.android.xml
+/intelxdk.config.crosswalk.xml
+/intelxdk.config.ios.xml
+/intelxdk.config.windows8.xml
+*.mobileprovision
