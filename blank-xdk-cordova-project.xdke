@@ -3,6 +3,11 @@
     "projectSettingsVersion": "1.1",
     "projectFiles": {},
     "projectDirectories": {},
-    "initialAutoPluginCount": 0
+    "initialAutoPluginCount": 0,
+    "currentService": {
+      "methodapi": "Lookup",
+      "endPoint": "Market-Data-APIs-v2",
+      "service": "MarkitOnDemand"
+    }
   }
 }
