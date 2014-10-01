@@ -9,7 +9,20 @@
 
 
 
-window.app = window.app || {} ;         // there should only be one of these, but...
+window.app = window.app || {} ;         // there should only be one of these...
+
+
+
+// Set to "true" if you want the console.log messages to appear.
+
+app.DEBUG = false ;
+
+app.consoleLog = function() {           // only emits console.log messages if app.DEBUG != false
+    if( app.DEBUG ) {
+        var args = Array.prototype.slice.call(arguments, 0) ;
+        console.log.apply(console, args) ;
+    }
+} ;
 
 
 
@@ -22,7 +35,7 @@ window.app = window.app || {} ;         // there should only be one of these, bu
 app.initEvents = function() {
     "use strict" ;
     var fName = "app.initEvents():" ;
-    console.log(fName, "entry") ;
+    app.consoleLog(fName, "entry") ;
 
     // initialize third-party libraries and event handlers
 
@@ -53,7 +66,7 @@ app.initEvents = function() {
 
     // after init is all done is a good time to remove our splash screen
 
-    app.hideSplashScreen() ;                // a splash screen is optional for your app
+    app.hideSplashScreen() ;                // using a splash screen is optional for your app
 
     // ...and whatever else you want to do now that the app has started...
     // The following is just for debug, not required; keep it if you want or get rid of it.
@@ -64,7 +77,7 @@ app.initEvents = function() {
     // app event handlers are ready
     // exit to idle state and wait for app events...
 
-    console.log(fName, "exit") ;
+    app.consoleLog(fName, "exit") ;
 } ;
 document.addEventListener("app.Ready", app.initEvents, false) ;
 
@@ -77,24 +90,24 @@ document.addEventListener("app.Ready", app.initEvents, false) ;
 app.initDebug = function() {
     "use strict" ;
     var fName = "app.initDebug():" ;
-    console.log(fName, "entry") ;
+    app.consoleLog(fName, "entry") ;
 
     if( window.device && device.cordova ) {                     // old Cordova 2.x version detection
-        console.log("device.version: " + device.cordova) ;      // print the cordova version string...
-        console.log("device.model: " + device.model) ;
-        console.log("device.platform: " + device.platform) ;
-        console.log("device.version: " + device.version) ;
+        app.consoleLog("device.version: " + device.cordova) ;   // print the cordova version string...
+        app.consoleLog("device.model: " + device.model) ;
+        app.consoleLog("device.platform: " + device.platform) ;
+        app.consoleLog("device.version: " + device.version) ;
     }
 
     if( window.cordova && cordova.version ) {                   // only works in Cordova 3.x
-        console.log("cordova.version: " + cordova.version) ;    // print new Cordova 3.x version string...
+        app.consoleLog("cordova.version: " + cordova.version) ; // print new Cordova 3.x version string...
 
         if( cordova.require ) {                                 // print included cordova plugins
-            console.log(JSON.stringify(cordova.require('cordova/plugin_list').metadata, null, 1)) ;
+            app.consoleLog(JSON.stringify(cordova.require('cordova/plugin_list').metadata, null, 1)) ;
         }
     }
 
-    console.log(fName, "exit") ;
+    app.consoleLog(fName, "exit") ;
 } ;
 document.addEventListener("app.Ready", app.initDebug, false) ;
 
@@ -106,7 +119,7 @@ document.addEventListener("app.Ready", app.initDebug, false) ;
 app.hideSplashScreen = function() {
     "use strict" ;
     var fName = "app.hideSplashScreen():" ;
-    console.log(fName, "entry") ;
+    app.consoleLog(fName, "entry") ;
 
     // see https://github.com/01org/appframework/blob/master/documentation/detail/%24.ui.launch.md
     // Do following if you disabled App Framework autolaunch (in index.html, for example)
@@ -119,5 +132,5 @@ app.hideSplashScreen = function() {
         intel.xdk.device.hideSplashScreen() ;
     }
 
-    console.log(fName, "exit") ;
+    app.consoleLog(fName, "exit") ;
 } ;
