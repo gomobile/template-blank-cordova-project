@@ -40,7 +40,7 @@
     <!-- <link rel="stylesheet" href="lib/af/af.ui.css"> -->
 <!--
     <script>
-		// if you're using App Framework, you might want to do this
+		// if you're using App Framework, you might want to also do this
         $.ui.autoLaunch = false ;
         // and then use $.ui.launch() in the app.hideSplashScreen() function
         // see https://github.com/01org/appframework/blob/master/documentation/detail/%24.ui.launch.md
@@ -57,29 +57,38 @@
         <input type="button" id="id_btnHello" value="Touch Me">
     </p>
 
+    <!-- IMPORTANT: Do not include your weinre script tag as part of your release builds! -->
+    <!-- Place your remote debugging (weinre) script URL from the Test tab here, if it does not work below -->
+    <!-- <script src="http://debug-software.intel.com/target/target-script-min.js#insertabiglongfunkynumberfromthexdkstesttab"></script> -->
+
+    <!-- See <head> section above for additional JS libraries loaded as part of this application. -->
+
+    <script src="intelxdk.js"></script>         <!-- phantom library, needed for XDK api calls -->
+    <script src="cordova.js"></script>          <!-- phantom library, needed for Cordova api calls -->
+    <script src="xhr.js"></script>              <!-- phantom library, needed for XDK CORS -->
+
+    <script src="js/app.js"></script>           <!-- for custom event code, see README and file comments for details -->
+    <script src="js/init-app.js"></script>      <!-- for custom init code, see README and file comments for details -->
+    <script src="js/init-dev.js"></script>      <!-- normalizes device and document ready events, see README for details -->
+
+    <!-- IMPORTANT: Do not include your weinre script tag as part of your release builds! -->
+    <!-- Place your remote debugging (weinre) script URL from the Test tab here, if it does not work above -->
+    <!-- <script src="http://debug-software.intel.com/target/target-script-min.js#insertabiglongfunkynumberfromthexdkstesttab"></script> -->
+</body>
+
 <!--
-    Recommended JavaScript library load order:
+    Recommended JavaScript library load order for hybrid Cordova apps:
 
-    <head>
-    ...
-     * "Device-Independent" JavaScript libraries.
-    ...
-    <style> (or CSS loads) </style>
-    </head>
+    -- "Device-Independent" JavaScript libraries.
+    -- optional: weinre debug script tag for remote console debug (see notes).
+    -- Intel XDK device JavaScript library.
+    -- Cordova/PhoneGap device JavaScript library.
+    -- "Device-Dependent" JavaScript libraries.
+    -- Application JavaScript <script> tags and libraries.
+    -- optional: weinre debug script tag for remote console debug (see notes).
 
-    <body>
-    ...html tags...
-     * optional: weinre debug script tag for remote console debug (see notes).
-     * Intel XDK device JavaScript library.
-     * Cordova/PhoneGap device JavaScript library.
-     * "Device-Dependent" JavaScript libraries.
-     * Application JavaScript <script> tags and libraries.
-     * optional: weinre debug script tag for remote console debug (see notes).
-    </body>
-
-    JavaScript is being loaded at both ends of the HTML file, in order to coordinate the loading of
-    the JavaScript libraries in the webview. You have to wait for the underlying device API native
-    code to finish its init, which can take longer than the webview init...
+    In complex projects, the JavaScript load order is important. You must insure that the underlying
+    device API native code finishes its init, which can take longer than the webview init...
 
     VERY IMPORTANT: notice that all of the libraries used in this project are located within the app's
     local directories, which means they will get bundled with the app. They are NOT being pulled in
@@ -118,7 +127,7 @@
     Because of this added dependency on the underlying native code (device) initialization, you should
     not use the "document ready" event to start your application. You should wait for the "device ready"
     event before you begin your application (if it uses any device APIs); in practice, it is best to wait
-    for both. (See the init-dev.js file in this demo app for an example of how to do this, it generates
+    for both. (See the init-dev.js file in this template for an example of how to do this, it generates
 	a custom "app.Ready" event that you can trigger off of and just forget about the other events.)
 
     NOTE: *any* library that redefines addEventListener() or fiddles with outstanding events may
@@ -126,27 +135,9 @@
     the Cordova and XDK libraries in the load order.
 
 	ALSO: if you use weinre for debugging (ala the Test tab or your own), you may have to experiment with
-	the placement of the weinre script. Two recommended locations are shown below. If these two locations
+	the placement of the weinre script. Some recommended locations are shown within. If these locations
 	do not work, you may have to experiment. The optimum placement can be app-specific, primarily as a
 	function of the included JavaScript libraries and your initialization.
 -->
 
-    <!-- IMPORTANT: Do not include your weinre script tag as part of your release builds! -->
-    <!-- Place your remote debugging (weinre) script URL from the Test tab here, if it does not work below -->
-    <!-- <script src="http://debug-software.intel.com/target/target-script-min.js#insertabiglongfunkynumberfromthexdkstesttab"></script> -->
-
-<!-- See <head> section above for additional JS libraries loaded as part of this application. -->
-    <script src="intelxdk.js"></script>         <!-- phantom library, needed for XDK api calls -->
-    <script src="cordova.js"></script>          <!-- phantom library, needed for Cordova api calls -->
-    <script src="xhr.js"></script>              <!-- phantom library, needed for XDK CORS -->
-
-    <script src="js/app.js"></script>
-    <script src="js/init-app.js"></script>
-    <script src="js/init-dev.js"></script>
-
-    <!-- IMPORTANT: Do not include your weinre script tag as part of your release builds! -->
-    <!-- Place your remote debugging (weinre) script URL from the Test tab here, if it does not work above -->
-    <!-- <script src="http://debug-software.intel.com/target/target-script-min.js#insertabiglongfunkynumberfromthexdkstesttab"></script> -->
-
-</body>
 </html>
