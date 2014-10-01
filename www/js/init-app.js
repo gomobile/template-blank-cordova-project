@@ -15,10 +15,10 @@ window.app = window.app || {} ;         // there should only be one of these...
 
 // Set to "true" if you want the console.log messages to appear.
 
-app.DEBUG = false ;
+app.LOG = false ;
 
-app.consoleLog = function() {           // only emits console.log messages if app.DEBUG != false
-    if( app.DEBUG ) {
+app.consoleLog = function() {           // only emits console.log messages if app.LOG != false
+    if( app.LOG ) {
         var args = Array.prototype.slice.call(arguments, 0) ;
         console.log.apply(console, args) ;
     }
