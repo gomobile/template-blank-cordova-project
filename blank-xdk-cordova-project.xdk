@@ -5,7 +5,7 @@
       "type": "Import",
       "src": "",
       "projectGuid": "142cf96f-ba32-415b-93dc-bec10e6d3679",
-      "lastModifiedDate": 1411511990058,
+      "lastModifiedDate": 1412196965808,
       "creationDate": 1394489018036
     },
     "sourceDirectory": "www",
@@ -33,14 +33,14 @@
     "cordovaPlugins": [
       {
         "id": "org.apache.cordova.device",
-        "version": "0.2.5",
+        "version": "0.2.9",
         "selectedState": "Included",
         "data": {},
         "paramvals": {}
       },
       {
         "id": "org.apache.cordova.splashscreen",
-        "version": "0.2.5",
+        "version": "0.3.0",
         "selectedState": "Included",
         "data": {},
         "paramvals": {}
@@ -71,7 +71,7 @@
         "iosProvs_": [],
         "addlPermissions_": "",
         "excludedLibraries_": "",
-        "cordovaCLIVersion_": "3.3",
+        "cordovaCLIVersion_": "3.5",
         "crosswalkVersion_": "stable",
         "appVersion_": "0.0.1",
         "appDescription_": "Universal init code for Intel XDK and Cordova device ready detection, as well as within browser.",
@@ -95,7 +95,7 @@
         "iosProvs_": [],
         "addlPermissions_": "",
         "excludedLibraries_": "",
-        "cordovaCLIVersion_": "3.3",
+        "cordovaCLIVersion_": "3.5",
         "crosswalkVersion_": "stable",
         "appVersion_": "0.0.1",
         "appDescription_": "Universal init code for Intel XDK and Cordova device ready detection, as well as within browser.",
@@ -118,7 +118,7 @@
         "iosProvs_": [],
         "addlPermissions_": "",
         "excludedLibraries_": "",
-        "cordovaCLIVersion_": "3.3",
+        "cordovaCLIVersion_": "3.5",
         "crosswalkVersion_": "stable",
         "appVersion_": "0.0.1",
         "appDescription_": "Universal init code for Intel XDK and Cordova device ready detection, as well as within browser."
@@ -140,7 +140,7 @@
         "iosProvs_": [],
         "addlPermissions_": "",
         "excludedLibraries_": "",
-        "cordovaCLIVersion_": "3.3",
+        "cordovaCLIVersion_": "3.5",
         "crosswalkVersion_": "stable",
         "appVersion_": "0.0.0.1",
         "appDescription_": "Universal init code for Intel XDK and Cordova device ready detection, as well as within browser."
@@ -159,7 +159,7 @@
         "iosProvs_": [],
         "addlPermissions_": "",
         "excludedLibraries_": "",
-        "cordovaCLIVersion_": "3.3",
+        "cordovaCLIVersion_": "3.5",
         "crosswalkVersion_": "stable",
         "appVersion_": "1.0.0.0"
       }
