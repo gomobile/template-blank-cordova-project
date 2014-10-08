@@ -119,17 +119,15 @@ app.hideSplashScreen = function() {
     app.consoleLog(fName, "entry") ;
 
     // see https://github.com/01org/appframework/blob/master/documentation/detail/%24.ui.launch.md
-    // Do following if you disabled App Framework autolaunch (in index.html, for example)
+    // Do the following if you disabled App Framework autolaunch (in index.html, for example)
     // $.ui.launch() ;
 
-    if( window.intel && intel.xdk && intel.xdk.device ) {               // Intel XDK API detected
-        if( intel.xdk.device.hideSplashScreen === undefined )           // XDK plugin bug?
-            app.consoleLog("intel.xdk.device.hideSplashScreen not defined") ;
-        else
-            intel.xdk.device.hideSplashScreen() ;
-    }
-    else if( navigator.splashscreen && navigator.splashscreen.hide ) {  // Cordova API detected
+    if( navigator.splashscreen && navigator.splashscreen.hide ) {   // Cordova API detected
         navigator.splashscreen.hide() ;
+    }
+    if( window.intel && intel.xdk && intel.xdk.device ) {           // Intel XDK device API detected, but...
+        if( intel.xdk.device.hideSplashScreen )                     // ...hideSplashScreen() is inside the base plugin
+            intel.xdk.device.hideSplashScreen() ;
     }
 
     app.consoleLog(fName, "exit") ;
