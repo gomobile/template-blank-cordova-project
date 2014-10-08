@@ -125,11 +125,11 @@ app.hideSplashScreen = function() {
     // Do following if you disabled App Framework autolaunch (in index.html, for example)
     // $.ui.launch() ;
 
-    if( navigator.splashscreen ) {                              // Cordova API detected
-        navigator.splashscreen.hide() ;
-    }
-    if( window.intel && intel.xdk && intel.xdk.device ) {       // Intel XDK API detected
+    if( window.intel && intel.xdk && intel.xdk.device ) {               // Intel XDK API detected
         intel.xdk.device.hideSplashScreen() ;
+    }
+    else if( navigator.splashscreen && navigator.splashscreen.hide ) {  // Cordova API detected
+        navigator.splashscreen.hide() ;
     }
 
     app.consoleLog(fName, "exit") ;
