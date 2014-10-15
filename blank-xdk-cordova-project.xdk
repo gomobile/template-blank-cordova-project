@@ -5,7 +5,7 @@
       "type": "Import",
       "src": "",
       "projectGuid": "142cf96f-ba32-415b-93dc-bec10e6d3679",
-      "lastModifiedDate": 1412196965808,
+      "lastModifiedDate": 1413404505043,
       "creationDate": 1394489018036
     },
     "sourceDirectory": "www",
@@ -41,13 +41,6 @@
       {
         "id": "org.apache.cordova.splashscreen",
         "version": "0.3.0",
-        "selectedState": "Included",
-        "data": {},
-        "paramvals": {}
-      },
-      {
-        "id": "org.apache.cordova.device-motion",
-        "version": "0.2.4",
         "selectedState": "Included",
         "data": {},
         "paramvals": {}
