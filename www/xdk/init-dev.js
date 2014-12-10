@@ -89,7 +89,7 @@ dev.isDeviceReady = {                   // listed in approximate order expected
     a_startTime______:dev.timeStamp(),  // when we started execution of this module
     b_fnDocumentReady:false,            // detected document.readyState == "complete"
     c_cordova_ready__:false,            // detected cordova device ready event
-    d_xdk_ready______:false,            // detected xdk device ready event
+    d_xdk_ready______:false,            // detected Intel XDK device ready event
     e_fnDeviceReady__:false,            // entered onDeviceReady()
     f_browser_ready__:false             // detected browser container
 } ;
@@ -100,7 +100,7 @@ dev.isDeviceReady = {                   // listed in approximate order expected
 // Runs after underlying device native code and browser is initialized.
 // Usually not much needed here, just additional "device init" code.
 // See initDeviceReady() below for code that kicks off this function.
-// This function works with Cordova and XDK webview or in a browser.
+// This function works with Cordova and Intel XDK webview or in a browser.
 
 // NOTE: Customize this function, if necessary, for low-level init of your app.
 
@@ -174,7 +174,7 @@ dev.onDeviceReadyCordova = function() {
     window.setTimeout(dev.onDeviceReady, dev.INSURANCE) ;
 } ;
 
-// If this event is called first, we should be in the legacy XDK container.
+// If this event is called first, we should be in the legacy Intel XDK container.
 
 dev.onDeviceReadyXDK = function() {
     dev.isDeviceReady.d_xdk_ready______ = dev.timeStamp() ;
@@ -214,7 +214,7 @@ dev.initDeviceReady = function() {
     document.addEventListener("deviceready", dev.onDeviceReadyCordova, false) ;
     window.setTimeout(dev.onDeviceReadyBrowser, dev.BROWSER) ;
 
-    // Last one, above, is fail-safe, in case we got no device ready event from Cordova or XDK.
+    // Last one, above, is fail-safe, in case we got no device ready event from Cordova or Intel XDK.
     // Cordova will timeout after five seconds, so we use a longer timeout to be conservative.
     // Very end of this file includes a "fail-safe, fail-safe" in case all else fails!
 

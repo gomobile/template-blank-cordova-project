@@ -67,9 +67,9 @@
 
     <!-- See <head> section above for additional JS libraries loaded as part of this application. -->
 
-    <script src="intelxdk.js"></script>         <!-- phantom library, needed for XDK api calls -->
+    <script src="intelxdk.js"></script>         <!-- phantom library, needed for Intel XDK api calls -->
     <script src="cordova.js"></script>          <!-- phantom library, needed for Cordova api calls -->
-    <script src="xhr.js"></script>              <!-- phantom library, needed for XDK CORS -->
+    <script src="xhr.js"></script>              <!-- phantom library, needed for Intel XDK CORS -->
 
     <script src="js/app.js"></script>           <!-- for your event code, see README and file comments for details -->
     <script src="js/init-app.js"></script>      <!-- for your init code, see README and file comments for details -->
@@ -107,24 +107,24 @@
     NOTE: do not use a directory prefix with intelxdk.js or cordova.js - they are inserted automatically
     by the build system, emulator and other tools and are assumed to be in the index.html source directory.
     You will not find these JS files anywhere in your project, they are "phantom" libraries. If you do see
-    copies of these files as part of your project they should be removed to avoid confusing the XDK.
+    copies of these files as part of your project they should be removed to avoid confusing the Intel XDK.
 
-    When building with any of the XDK Cordova build systems (e.g., "Cordova Hybrid App") you can
+    When building with any of the Intel XDK Cordova build systems (e.g., "Cordova Hybrid App") you can
     omit the "intelxdk.js" and "xhr.js" script files shown below. It does not hurt to keep them, but
-    they are not used in that environment, they are only needed for the "legacy" XDK build systems.
-    (In the case of the Cordova build system, the Cordova and XDK apis are included as plugins
+    they are not used in that environment, they are only needed for the "legacy" Intel XDK build systems.
+    (In the case of the Cordova build system, the Cordova and Intel XDK apis are included as plugins
     and the CORS configuration is specified as a parameter in the build configuration file.)
 
     FINAL VERY IMPORTANT NOTE: If you are using a large number of JavaScript libraries, especially
     third-party libraries (like jQuery, {{ mustache }}, Underscore, etc.) that are "independent" of the
-    device APIs provided by the XDK and Cordova libraries, and are independent of your application, your
+    device APIs provided by the Intel XDK and Cordova libraries, and are independent of your application, your
     app initialization will be most successful if you load these libraries BEFORE the Cordova and
-    XDK libraries, in the <head> section of your index.html file. Obviously, any code that depends
-    on the Cordova or XDK library APIs should be loaded AFTER the intelxdk.js and cordova.js libraries.
+    Intel XDK libraries, in the <head> section of your index.html file. Obviously, any code that depends
+    on the Cordova or Intel XDK library APIs should be loaded AFTER the intelxdk.js and cordova.js libraries.
 
     Libraries that are "independent" of the device APIs are libraries that you could use in a desktop
     browser in a normal web page or web app. "Dependent" libraries are, most likely, your own code
-    that you've written specifically to work with the Cordova or XDK device APIs. In some cases, if
+    that you've written specifically to work with the Cordova or Intel XDK device APIs. In some cases, if
     your device-dependent code requires access to the device-independent code to get started, you may
     have to use something like CommonJS to force the device-dependent code to wait for the device-
     independent code to initialize, otherwise you may have trouble getting your app started.
@@ -137,7 +137,7 @@
 
     NOTE: *any* library that redefines addEventListener() or fiddles with outstanding events may
     interfere with capturing the "device ready" event and should, therefore, be placed *BEFORE*
-    the Cordova and XDK libraries in the load order.
+    the Cordova and Intel XDK libraries in the load order.
 
 	ALSO: if you use weinre for debugging (ala the Test tab or your own), you may have to experiment with
 	the placement of the weinre script. Some recommended locations are shown within. If these locations

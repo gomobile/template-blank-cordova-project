@@ -2,12 +2,14 @@
   "project": {
     "projectSettingsVersion": "1.1",
     "creationData": {
-      "type": "Import",
-      "src": "",
-      "projectGuid": "142cf96f-ba32-415b-93dc-bec10e6d3679",
+      "type": "Blank Project",
+      "projectTypeName": "com.intel.xdk.projecttype.jsapp",
+      "src": "blankproject",
+      "projectGuid": "00000000-0000-0000-0000-000000000000",
       "lastModifiedDate": 1413404505043,
       "creationDate": 1394489018036
     },
+    "XDK-app-designer": "false",
     "sourceDirectory": "www",
     "startFile": "index.html",
     "projectFiles": {},
@@ -57,7 +59,7 @@
         },
         "isActive_": true,
         "appName_": "Blank Intel XDK Cordova Project",
-        "appID_": "xdk.intel.blank.project",
+        "appID_": "xdk.intel.cordova.template",
         "appAccess_": "*",
         "icons_": [],
         "splashes_": [],
@@ -81,7 +83,7 @@
         },
         "isActive_": true,
         "appName_": "Blank Intel XDK Cordova Project",
-        "appID_": "xdk.intel.blank.project",
+        "appID_": "xdk.intel.cordova.template",
         "appAccess_": "*",
         "icons_": [],
         "splashes_": [],
@@ -100,11 +102,12 @@
         "runtime_": "Cordova 3.x",
         "name_": "iOS",
         "preferences_": {
-          "ios-target": "5"
+          "ios-target": "5",
+          "ios-configuration": "adhoc"
         },
         "isActive_": true,
         "appName_": "Blank Intel XDK Cordova Project",
-        "appID_": "xdk.intel.blank.project",
+        "appID_": "xdk.intel.cordova.template",
         "appAccess_": "*",
         "icons_": [],
         "splashes_": [],
@@ -126,7 +129,7 @@
         },
         "isActive_": true,
         "appName_": "Blank Intel XDK Cordova Project",
-        "appID_": "xdk.intel.blank.project",
+        "appID_": "xdk.intel.cordova.template",
         "appAccess_": "*",
         "icons_": [],
         "splashes_": [],
@@ -144,8 +147,8 @@
         "name_": "WindowsPhone8",
         "preferences_": {},
         "isActive_": true,
-        "appName_": "blank-xdk-cordova-project",
-        "appID_": "not.yet.specified",
+        "appName_": "Blank Intel XDK Cordova Project",
+        "appID_": "xdk.intel.cordova.template",
         "appAccess_": "*",
         "icons_": [],
         "splashes_": [],
@@ -154,7 +157,8 @@
         "excludedLibraries_": "",
         "cordovaCLIVersion_": "3.5",
         "crosswalkVersion_": "stable",
-        "appVersion_": "1.0.0.0"
+        "appVersion_": "0.0.0.1",
+        "appDescription_": "Universal init code for Intel XDK and Cordova device ready detection, as well as within browser."
       }
     }
   }
