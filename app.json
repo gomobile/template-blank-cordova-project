@@ -1,5 +1,5 @@
 {
-"reponame":"template-a-blank-cordova-project",
+"reponame":"template-blank-cordova-project",
 "title":"Blank Cordova Starter",
 "tooltip":"Use this template to develop cross-platform mobile apps that can be built to run on various mobile devices as well as in a mobile browser. This template has all the device initialization code necessary for creating a mobile app using Cordova or Intel XDK APIs.",
 "description":"Use this template to develop cross-platform mobile apps that can be built to run on various mobile devices as well as in a mobile browser. This template has all the device initialization code necessary for creating a mobile app using Cordova or Intel XDK APIs.",
