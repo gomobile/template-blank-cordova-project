@@ -8,5 +8,6 @@
 "type":"blankproject",
 "keywords":["Apache Cordova API","Blank Project"],
 "highlights" : [""],
-"relationship":"blank"
+"relationship":"blank",
+"projectTypeName": "com.intel.xdk.projecttype.jsapp"
 }
