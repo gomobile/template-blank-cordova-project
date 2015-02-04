@@ -4,7 +4,7 @@
   * Please see the included README.md file for license terms and conditions.
   -->
 <head>
-    <title>Blank Hybrid App Project Template</title>
+    <title>Blank Cordova App Project Template</title>
     <meta http-equiv="Content-type" content="text/html; charset=utf-8">
 
 <!--
@@ -46,6 +46,13 @@
         // see https://github.com/01org/appframework/blob/master/documentation/detail/%24.ui.launch.md
     </script>
 -->
+<!-- Uncomment this script element if you convert your "Cordova web app" to a "Standard HTML5 web app" -->
+<!--
+    <script type="text/javascript" id="xdkJSdevBrowser_">
+        window.dev = window.dev || {} ;         // object used by init-dev.js, which detects various ready events
+        dev.BROWSER = 500 ;                     // msecs, in non-Cordova app we don't care about "deviceready" events
+    </script>
+-->
     <link rel="stylesheet" href="css/app.css">
 </head>
 
@@ -61,36 +68,39 @@
         <input type="button" id="id_btnHello" value="Touch Me">
     </p>
 
-    <!-- IMPORTANT: Do not include your weinre script tag as part of your release builds! -->
-    <!-- Place your remote debugging (weinre) script URL from the Test tab here, if it does not work below -->
+<!-- IMPORTANT: Do not include a weinre script tag as part of your release builds! -->
+<!-- Place your remote debugging (weinre) script URL from the Test tab here, if it does not work below -->
     <!-- <script src="http://debug-software.intel.com/target/target-script-min.js#insertabiglongfunkynumberfromthexdkstesttab"></script> -->
 
     <!-- See <head> section above for additional JS libraries loaded as part of this application. -->
 
-    <script src="intelxdk.js"></script>         <!-- phantom library, needed for Intel XDK api calls -->
-    <script src="cordova.js"></script>          <!-- phantom library, needed for Cordova api calls -->
-    <script src="xhr.js"></script>              <!-- phantom library, needed for Intel XDK CORS -->
+<!--
+  * cordova.js is a phantom lib for "Cordova HTML5 web app," it does nothing in a "Standard HTML5 web app"
+  * Seeing a "Failed to load resource: net::ERR_FILE_NOT_FOUND" message caused by this "cordova.js" script?
+  * The cordova.js script is required if you convert your "Standard HTML5" project into a "Cordova" project.
+  * You can safely ignore the error or comment out this line if you will not be developing a Cordova app.
+-->
+    <script src="cordova.js" id="xdkJScordova_"></script>
 
     <script src="js/app.js"></script>           <!-- for your event code, see README and file comments for details -->
     <script src="js/init-app.js"></script>      <!-- for your init code, see README and file comments for details -->
+    <script src="xdk/init-dev.js"></script>     <!-- normalizes device and document ready events, see file for details -->
 
-    <script src="xdk/init-dev.js"></script>     <!-- normalizes device and document ready events, see README for details -->
-
-    <!-- IMPORTANT: Do not include your weinre script tag as part of your release builds! -->
-    <!-- Place your remote debugging (weinre) script URL from the Test tab here, if it does not work above -->
+<!-- IMPORTANT: Do not include a weinre script tag as part of your release builds! -->
+<!-- Place your remote debugging (weinre) script URL from the Test tab here, if it does not work above -->
     <!-- <script src="http://debug-software.intel.com/target/target-script-min.js#insertabiglongfunkynumberfromthexdkstesttab"></script> -->
 </body>
 
 <!--
     Recommended JavaScript library load order for hybrid Cordova apps:
 
-    -- "Device-Independent" JavaScript libraries.
-    -- optional: weinre debug script tag for remote console debug (see notes).
-    -- Intel XDK device JavaScript library.
-    -- Cordova/PhoneGap device JavaScript library.
-    -- "Device-Dependent" JavaScript libraries.
-    -- Application JavaScript <script> tags and libraries.
-    -- optional: weinre debug script tag for remote console debug (see notes).
+    * "Device-Independent" JavaScript libraries.
+    * optional: weinre debug script tag for remote console debug (see notes).
+    * Intel XDK device JavaScript library.
+    * Cordova/PhoneGap device JavaScript library.
+    * "Device-Dependent" JavaScript libraries.
+    * Application JavaScript <script> tags and libraries.
+    * optional: weinre debug script tag for remote console debug (see notes).
 
     In complex projects, the JavaScript load order is important. You must insure that the underlying
     device API native code finishes its init, which can take longer than the webview init...
@@ -101,31 +111,31 @@
     This insures that you always use the JS code that you debugged against AND that you are not requiring
     a data connection (network connection) to get the app started. If your app startup required a data
     connection to initialize and start interaction with the user, lack of a reliable network connection
-    coud be disasterous. Not to mention it generally results in a slower load time. Loading locally is
-	is much, much friendlier to your end user's data plan and battery.  :-)
+    could be disasterous. Not to mention it generally results in a slower load time. Loading locally is
+	is much friendlier to your end user's data plan and battery.  :-)
 
     NOTE: do not use a directory prefix with intelxdk.js or cordova.js - they are inserted automatically
     by the build system, emulator and other tools and are assumed to be in the index.html source directory.
     You will not find these JS files anywhere in your project, they are "phantom" libraries. If you do see
     copies of these files as part of your project they should be removed to avoid confusing the Intel XDK.
 
-    When building with any of the Intel XDK Cordova build systems (e.g., "Cordova Hybrid App") you can
-    omit the "intelxdk.js" and "xhr.js" script files shown below. It does not hurt to keep them, but
-    they are not used in that environment, they are only needed for the "legacy" Intel XDK build systems.
+    When building a Cordova app (e.g., "Cordova Hybrid App") you can omit references to the
+    "intelxdk.js" and "xhr.js" script files. It does not hurt to keep them, but they are not used in
+    the Cordova environment, they are only needed for the "legacy" Intel XDK build systems.
     (In the case of the Cordova build system, the Cordova and Intel XDK apis are included as plugins
-    and the CORS configuration is specified as a parameter in the build configuration file.)
+    and the CORS configuration is specified as a parameter in the build settings.)
 
-    FINAL VERY IMPORTANT NOTE: If you are using a large number of JavaScript libraries, especially
-    third-party libraries (like jQuery, {{ mustache }}, Underscore, etc.) that are "independent" of the
-    device APIs provided by the Intel XDK and Cordova libraries, and are independent of your application, your
+    LIBRARY NOTE: If you are using a large number of JavaScript libraries, especially third-party libraries
+    (like jQuery, {{ mustache }}, Underscore, etc.) that are "independent" of the device APIs provided
+    by the Intel XDK and Cordova libraries - and are independent of your application - your
     app initialization will be most successful if you load these libraries BEFORE the Cordova and
     Intel XDK libraries, in the <head> section of your index.html file. Obviously, any code that depends
-    on the Cordova or Intel XDK library APIs should be loaded AFTER the intelxdk.js and cordova.js libraries.
+    on the Cordova or Intel XDK library APIs must be loaded AFTER the intelxdk.js and cordova.js libraries.
 
     Libraries that are "independent" of the device APIs are libraries that you could use in a desktop
     browser in a normal web page or web app. "Dependent" libraries are, most likely, your own code
-    that you've written specifically to work with the Cordova or Intel XDK device APIs. In some cases, if
-    your device-dependent code requires access to the device-independent code to get started, you may
+    that you've written specifically to work with the Cordova or Intel XDK device APIs. In some cases,
+    if your device-dependent code requires access to device-independent code to get started, you may
     have to use something like CommonJS to force the device-dependent code to wait for the device-
     independent code to initialize, otherwise you may have trouble getting your app started.
 

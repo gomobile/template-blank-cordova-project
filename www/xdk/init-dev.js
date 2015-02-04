@@ -38,7 +38,7 @@
 
 
 
-window.dev = window.dev || {} ;         // there should only be one of these...
+window.dev = window.dev || {} ;         // could be predefined in index.html file...
 
 
 
@@ -57,7 +57,7 @@ else {
 // Set to "true" if you want the console.log messages to appear.
 // Helpful for debugging and understanding how this thing works.
 
-dev.LOG = false ;
+dev.LOG = dev.LOG || false ;
 
 dev.consoleLog = function() {       // only emits console.log messages if dev.LOG != false
     if( dev.LOG ) {
@@ -71,13 +71,14 @@ dev.consoleLog = function() {       // only emits console.log messages if dev.LO
 // Defines some delays constants used throughout for ready detections.
 // Each should be smaller than the next; most cases should work as is.
 // Lowering dev.BROWSER will speed up detection of browser scenario...
-// ...at expense of possible false detects of browser environment...
+// ...at expense of possible false detects of the browser environment...
 // ...probably okay to go as low as 3000ms, depends on external libraries, etc.
+// dev.NAME = dev.NAME || ## ; allows for override of values in index.html
 
-dev.INSURANCE = 250 ;                   // ms, insurance on registering ready events detected
-dev.WINDOW_LOAD = 500 ;                 // ms, for combating premature window load events
-dev.BROWSER = 7000 ;                    // ms, detecting in a browser (probably best at >5 seconds)
-dev.FAIL_SAFE = 10000 ;                 // ms, if all else fails, this saves our bacon :-)
+dev.INSURANCE = dev.INSURANCE || 250 ;      // msecs, insurance on registering ready events detected
+dev.WINDOW_LOAD = dev.WINDOW_LOAD || 500 ;  // msecs, for combating premature window load events
+dev.BROWSER = dev.BROWSER || 7000 ;         // msecs, detect "in a browser" (best at >5 seconds if in Cordova)
+dev.FAIL_SAFE = dev.FAIL_SAFE || 10000 ;    // msecs, if all else fails, this saves our bacon :-)
 
 
 
