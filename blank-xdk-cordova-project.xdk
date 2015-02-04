@@ -9,6 +9,7 @@
       "lastModifiedDate": 1413404505043,
       "creationDate": 1394489018036
     },
+    "XDK-app-designer": "false",
     "sourceDirectory": "www",
     "startFile": "index.html",
     "projectFiles": {},
@@ -85,7 +86,7 @@
       },
       "iOS": {
         "platform_": "ios",
-        "runtime_": "W3C on Cordova",
+        "runtime_": "Cordova 3.x",
         "name_": "iOS",
         "preferences_": {
           "ios-target": "6",
@@ -146,7 +147,7 @@
         "cordovaCLIVersion_": "?",
         "crosswalkVersion_": "?",
         "appVersion_": "0.0.0.1",
-        "appAuthor_": "Intel XDK",	
+        "appAuthor_": "Intel XDK",
         "appDescription_": "Universal init code for Intel XDK and Cordova device ready detection."
       }
     },
