@@ -129,26 +129,6 @@
         "appVersion_": "0.0.0.1",
         "appAuthor_": "Intel XDK",
         "appDescription_": "Universal init code for Intel XDK and Cordova device ready detection."
-      },
-      "WindowsPhone8": {
-        "platform_": "wp8",
-        "runtime_": "Cordova 3.x",
-        "name_": "WindowsPhone8",
-        "preferences_": {},
-        "isActive_": true,
-        "appName_": "Blank Intel XDK Cordova Template",
-        "appID_": "xdk.intel.blank.template",
-        "appAccess_": "*",
-        "icons_": [],
-        "splashes_": [],
-        "iosProvs_": [],
-        "addlPermissions_": "",
-        "excludedLibraries_": "",
-        "cordovaCLIVersion_": "?",
-        "crosswalkVersion_": "?",
-        "appVersion_": "0.0.0.1",
-        "appAuthor_": "Intel XDK",
-        "appDescription_": "Universal init code for Intel XDK and Cordova device ready detection."
       }
     },
     "gameAssetDirectory": "asset",
