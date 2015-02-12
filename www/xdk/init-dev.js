@@ -1,4 +1,5 @@
 /*
+ * Copyright © 2012-2015, Intel Corporation. All rights reserved.
  * Please see the included README.md file for license terms and conditions.
  */
 
@@ -70,14 +71,17 @@ dev.consoleLog = function() {       // only emits console.log messages if dev.LO
 
 // Defines some delays constants used throughout for ready detections.
 // Each should be smaller than the next; most cases should work as is.
-// Lowering dev.BROWSER will speed up detection of browser scenario...
-// ...at expense of possible false detects of the browser environment...
+// Lowering dev.BROWSER speeds up detection of browser scenario...
+// ...at expense of possible false detects of browser environment...
 // ...probably okay to go as low as 3000ms, depends on external libraries, etc.
 // dev.NAME = dev.NAME || ## ; allows for override of values in index.html
 
+if( typeof window.cordova !== "undefined" ) // if real cordova.js is present, we should detect a "deviceready"...
+    dev.BROWSER = dev.BROWSER || 7000 ;     // ...fall back to "in browser" (best if >5 seconds when Cordova present)
+
 dev.INSURANCE = dev.INSURANCE || 250 ;      // msecs, insurance on registering ready events detected
 dev.WINDOW_LOAD = dev.WINDOW_LOAD || 500 ;  // msecs, for combating premature window load events
-dev.BROWSER = dev.BROWSER || 7000 ;         // msecs, detect "in a browser" (best at >5 seconds if in Cordova)
+dev.BROWSER = dev.BROWSER || 500 ;          // msecs, non-Cordova apps don't care about "deviceready" events
 dev.FAIL_SAFE = dev.FAIL_SAFE || 10000 ;    // msecs, if all else fails, this saves our bacon :-)
 
 

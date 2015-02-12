@@ -1,6 +1,8 @@
 Blank Intel XDK and Apache Cordova Project Template
 ===================================================
 
+Copyright © 2012-2015, Intel Corporation. All rights reserved.
+
 See [LICENSE.md](<LICENSE.md>) for license terms and conditions.
 
 Use this template as a starting point for an Intel XDK or Apache Cordova hybrid
