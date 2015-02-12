@@ -245,16 +245,35 @@ dev.initDeviceReady = function() {
 
 // NOTE: document.readyState seems to be more reliable, but seems not to be omnipresent.
 // NOTE: Delay after "load" event is added because some webviews appear to trigger prematurely.
+// NOTE: Looks like overkill, we are trying to capture any and all doc ready events.
+// Parts derived from http://dean.edwards.name/weblog/2006/06/again/
 
-if( document.readyState ) {                     // some devices don't support this, why???
+if( document.readyState ) {
     dev.consoleLog("document.readyState:", document.readyState) ;
     document.onreadystatechange = function () {
         dev.consoleLog("document.readyState:", document.readyState) ;
-        if (document.readyState === "complete") {
-            dev.initDeviceReady() ;             // call when document is "ready ready" :)
+        if( (document.readyState === "complete") || (document.readyState === "loaded") ) {
+            dev.initDeviceReady() ;
         }
     } ;
 }
-dev.consoleLog("addEventListener:", dev.timeStamp()) ;
-window.addEventListener("load", function(){window.setTimeout(dev.initDeviceReady,dev.WINDOW_LOAD);}.bind(dev), false) ;
+
+if( document.addEventListener ) {
+    dev.consoleLog("document.addEventListener:", dev.timeStamp()) ;
+    document.addEventListener("DOMContentLoaded", dev.initDeviceReady, false) ;
+}
+
+if( window.addEventListener ) {
+    dev.consoleLog("window.addEventListener:", dev.timeStamp()) ;
+    window.addEventListener("load", dev.initDeviceReady, false) ;
+} else if( window.attachEvent ) {
+    dev.consoleLog("window.attachEvent:", dev.timeStamp()) ;
+    window.attachEvent("onload", dev.initDeviceReady) ;
+}
+
+// window.addEventListener("load", function(){window.setTimeout(dev.initDeviceReady,dev.WINDOW_LOAD);}.bind(dev), false) ;
+// window.onload = function(){window.setTimeout(dev.initDeviceReady,dev.WINDOW_LOAD);}.bind(dev) ;
+// window.onload = dev.initDeviceReady ;
+
 window.setTimeout(dev.initDeviceReady, dev.FAIL_SAFE) ;     // fail-safe fail-safe, just in case we miss all events!
+dev.consoleLog("end init-dev.js:", dev.timeStamp()) ;       // debug marker to indicate finished reading init-dev.js
