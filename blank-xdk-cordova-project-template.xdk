@@ -2,12 +2,12 @@
   "project": {
     "projectSettingsVersion": "1.2",
     "creationData": {
-      "type": "Blank Project",
-      "projectTypeName": "com.intel.xdk.projecttype.jsapp",
-      "src": "",
-      "projectGuid": "00000000-0000-0000-0000-000000000000",
-      "lastModifiedDate": 1413404505043,
-      "creationDate": 1394489018036
+        "type": "Blank Project",
+        "projectTypeName": "com.intel.xdk.projecttype.jsapp",
+        "src": "",
+        "projectGuid": "00000000-0000-0000-0000-000000000000",
+        "lastModifiedDate": 1413404505043,
+        "creationDate": 1394489018036
     },
     "XDK-app-designer": "false",
     "sourceDirectory": "www",
