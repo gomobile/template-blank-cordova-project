@@ -1,13 +1,22 @@
 {
-"repoName":"template-blank-cordova-project",
-"title":"Blank Cordova Template",
-"tooltip":"Use this template to develop cross-platform mobile apps that can be built to run on various mobile devices. This template has all the device initialization code necessary for creating a mobile app using Cordova or Intel XDK APIs.",
-"description":"Use this template to develop cross-platform mobile apps that can be built to run on various mobile devices. This template has all the device initialization code necessary for creating a mobile app using Cordova or Intel XDK APIs.",
-"articleUrl":"https://github.com/gomobile/template-blank-cordova-project/blob/master/README.md",
-"visible":"true",
-"type":"blankproject",
-"keywords":["Apache Cordova API","Blank Project"],
-"highlights" : [""],
-"relationship":"blank",
-"projectTypeName": "com.intel.xdk.projecttype.jsapp"
+   "relationship" : "blank",
+   "mobile" : false,
+   "highlights" : [
+      ""
+   ],
+   "description" : "Use this template to develop cross-platform mobile apps that can be built to run on various mobile devices. This template has all the device initialization code necessary for creating a mobile app using Cordova or Intel XDK APIs.",
+   "projectTypeName" : "com.intel.xdk.projecttype.jsapp",
+   "articleUrl" : "https://github.com/gomobile/template-blank-cordova-project/blob/master/README.md",
+   "title" : "Blank Cordova Template",
+   "appPreview" : false,
+   "relName" : null,
+   "tooltip" : "Use this template to develop cross-platform mobile apps that can be built to run on various mobile devices. This template has all the device initialization code necessary for creating a mobile app using Cordova or Intel XDK APIs.",
+   "type" : "blankproject",
+   "repoName" : "template-blank-cordova-project",
+   "keywords" : [
+      "Apache Cordova API",
+      "Blank Project"
+   ],
+   "appName" : null,
+   "visible" : true
 }
