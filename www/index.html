@@ -1,20 +1,39 @@
 <!DOCTYPE html>
 <html>
-<head>
-    <meta http-equiv="Content-type" content="text/html; charset=utf-8">
-    <meta name="viewport" content="width=device-width, minimum-scale=1, initial-scale=1, user-scalable=no">
 
-    <script src="cordova.js" id="xdkJScordova_"></script>
-    <script id="xdkJSonDeviceReady_">
-        function onDeviceReady() { 
-            if( navigator.splashscreen && navigator.splashscreen.hide ) {
+<head>
+    <title>Blank Cordova HTML5 Mobile App Template</title>
+    <meta http-equiv="Content-type" content="text/html; charset=utf-8">
+
+    <!-- see http://webdesign.tutsplus.com/tutorials/htmlcss-tutorials/quick-tip-dont-forget-the-viewport-meta-tag -->
+    <meta name="viewport" content="width=device-width, minimum-scale=1, initial-scale=1, user-scalable=no">
+    <style>
+        /* following two viewport lines are equivalent to meta viewport statement above, needed for Windows */
+        /* see http://www.quirksmode.org/blog/archives/2014/05/html5_dev_conf.html and http://dev.w3.org/csswg/css-device-adapt/ */
+        @-ms-viewport { width: 100vw ; min-zoom: 100% ; zoom: 100% ; }  @viewport { width: 100vw ; min-zoom: 100% zoom: 100% ; }
+        @-ms-viewport { user-zoom: fixed ; min-zoom: 100% ; }           @viewport { user-zoom: fixed ; min-zoom: 100% ; }
+    </style>
+
+    <!-- "Phantom" cordova.js script required for "Cordova" projects that use plugins. -->
+    <script src="cordova.js"></script>
+
+    <script>
+        function onDeviceReady() {
+            if( navigator.splashscreen && navigator.splashscreen.hide ) {   // Cordova hide splashscreen detected
                 navigator.splashscreen.hide() ;
             }
         }
-        document.addEventListener("deviceready", onDeviceReady, false);
+        document.addEventListener("deviceready", onDeviceReady, false) ;
     </script>
+
+    <!-- optional app.Ready event generator, instead of onDeviceReady, for Cordova packaged apps -->
+    <!-- <script src="xdk/init-dev.js"></script> -->
 </head>
+
+
 <body>
 
 </body>
+
+
 </html>
