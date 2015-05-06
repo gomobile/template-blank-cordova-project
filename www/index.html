@@ -1,39 +1,119 @@
 <!DOCTYPE html>
 <html>
-
+<!--
+  * Copyright © 2012-2015, Intel Corporation. All rights reserved.
+  * Please see the included README.md file for license terms and conditions.
+  -->
 <head>
-    <title>Blank Cordova HTML5 Mobile App Template</title>
+    <title>Blank Cordova Mobile App Template</title>
     <meta http-equiv="Content-type" content="text/html; charset=utf-8">
 
     <!-- see http://webdesign.tutsplus.com/tutorials/htmlcss-tutorials/quick-tip-dont-forget-the-viewport-meta-tag -->
+    <!-- <meta name="viewport" content="width=device-width, minimum-scale=1, initial-scale=1"> -->
     <meta name="viewport" content="width=device-width, minimum-scale=1, initial-scale=1, user-scalable=no">
+    <!-- <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=yes, minimum-scale=1, maximum-scale=2"> -->
     <style>
-        /* following two viewport lines are equivalent to meta viewport statement above, needed for Windows */
+        /* following two viewport lines are equivalent to meta viewport statement above, and is needed for Windows */
         /* see http://www.quirksmode.org/blog/archives/2014/05/html5_dev_conf.html and http://dev.w3.org/csswg/css-device-adapt/ */
-        @-ms-viewport { width: 100vw ; min-zoom: 100% ; zoom: 100% ; }  @viewport { width: 100vw ; min-zoom: 100% zoom: 100% ; }
-        @-ms-viewport { user-zoom: fixed ; min-zoom: 100% ; }           @viewport { user-zoom: fixed ; min-zoom: 100% ; }
+        @-ms-viewport { width: 100vw ; min-zoom: 100% ; zoom: 100% ; }          @viewport { width: 100vw ; min-zoom: 100% zoom: 100% ; }
+        @-ms-viewport { user-zoom: fixed ; min-zoom: 100% ; }                   @viewport { user-zoom: fixed ; min-zoom: 100% ; }
+        /*@-ms-viewport { user-zoom: zoom ; min-zoom: 100% ; max-zoom: 200% ; }   @viewport { user-zoom: zoom ; min-zoom: 100% ; max-zoom: 200% ; }*/
     </style>
 
-    <!-- "Phantom" cordova.js script required for "Cordova" projects that use plugins. -->
-    <script src="cordova.js"></script>
+    <!-- See explanation at the bottom of this file for info regarding placement of JS libraries. -->
+    <!-- These library references (below) are just examples to give you the general idea... -->
+    <!-- <script src="lib/mc/hammer.js"></script> -->
+    <!-- <script src="lib/ft/fastclick.js"></script> -->
+    <!-- <script src="lib/jq/jquery.js"></script> -->
 
-    <script>
-        function onDeviceReady() {
-            if( navigator.splashscreen && navigator.splashscreen.hide ) {   // Cordova hide splashscreen detected
-                navigator.splashscreen.hide() ;
-            }
-        }
-        document.addEventListener("deviceready", onDeviceReady, false) ;
-    </script>
-
-    <!-- optional app.Ready event generator, instead of onDeviceReady, for Cordova packaged apps -->
-    <!-- <script src="xdk/init-dev.js"></script> -->
+    <link rel="stylesheet" href="css/app.css">
 </head>
 
 
 <body>
+    <h1 class="align-center">A Blank Project Template</h1>
+    <p class="align-center">
+        To use this template as a starter app, start with init-app.js and app.js for your JavaScript code.
+        See the README.md file for more details and the comments inside index.html, app.js and init-app.js.
+    </p>
+    <br>
+    <p class="align-center">
+        <input type="button" id="id_btnHello" value="Touch Me">
+    </p>
 
+    <!-- IMPORTANT: Do not include a weinre script tag as part of your release builds! -->
+    <!-- Place your remote debugging (weinre) script URL from the Test tab here, if it does not work below -->
+    <!-- <script src="http://debug-software.intel.com/target/target-script-min.js#insertabiglongfunkynumberfromthexdkstesttab"></script> -->
+
+    <!-- See <head> section above for additional JS libraries loaded as part of this application. -->
+
+    <script src="cordova.js"></script>          <!-- "Phantom" cordova.js required for projects that use plugins -->
+
+    <script src="js/app.js"></script>           <!-- for your event code, see README and file comments for details -->
+    <script src="js/init-app.js"></script>      <!-- for your init code, see README and file comments for details -->
+    <script src="xdk/init-dev.js"></script>     <!-- normalizes device and document ready events, see file for details -->
+
+    <!-- IMPORTANT: Do not include a weinre script tag as part of your release builds! -->
+    <!-- Place your remote debugging (weinre) script URL from the Test tab here, if it does not work above -->
+    <!-- <script src="http://debug-software.intel.com/target/target-script-min.js#insertabiglongfunkynumberfromthexdkstesttab"></script> -->
 </body>
 
+<!--
+    Recommended JavaScript library load order for hybrid Cordova apps:
+
+    * "Device-Independent" JavaScript libraries.
+    * optional: weinre debug script tag for remote console debug (see notes).
+    * Intel XDK device JavaScript library.
+    * Cordova/PhoneGap device JavaScript library.
+    * "Device-Dependent" JavaScript libraries.
+    * Application JavaScript <script> tags and libraries.
+    * optional: weinre debug script tag for remote console debug (see notes).
+
+    In complex projects, the JavaScript load order is important. You must insure that the underlying
+    device API native code finishes its init, which usually takes longer than the webview init...
+
+    VERY IMPORTANT: notice that all of the libraries used in this project are located within the app's
+    local directories, which means they will get bundled with the app. They are NOT being pulled in
+    over the net. In most cases, this is what you should be doing when you build a hybrid mobile app.
+    This insures that you always use the JS code that you debugged against AND that you are not requiring
+    a data connection (network connection) to get the app started. If your app startup required a data
+    connection to initialize and start interaction with the user, lack of a reliable network connection
+    could be disasterous. Not to mention it generally results in a slower load time. Loading locally is
+    is much friendlier to your end user's data plan and battery.  :-)
+
+    NOTE: do not use a directory prefix with the cordova.js file - it is inserted automatically
+    by the build system, emulator and other tools and is assumed to be in the index.html source directory.
+    You will not find this JS file anywhere in your project, it is a "phantom" library. If you do see
+    copies of this file as part of your project it should be removed to avoid confusing the Intel XDK.
+
+    LIBRARY NOTE: If you are using a large number of JavaScript libraries, especially third-party libraries
+    (like jQuery, {{ mustache }}, Underscore, etc.) that are "independent" of the device APIs provided
+    by the Cordova library and plugins - and they are independent of your application - your
+    app initialization will be most successful if you load these libraries BEFORE the Cordova JS file,
+    in the <head> section of your index.html file. Obviously, any code that depends on Cordova APIs
+    must be loaded AFTER the cordova.js library.
+
+    Libraries that are "independent" of the device APIs are libraries that you could use in a desktop
+    browser in a normal web page or web app. "Dependent" libraries are, most likely, your own code
+    that you've written specifically to work with the Cordova device APIs. In some cases,
+    if your device-dependent code requires access to device-independent code to get started, you may
+    have to use something like CommonJS to force the device-dependent code to wait for the device-
+    independent code to initialize, otherwise you may have trouble getting your app started.
+
+    Because of this added dependency on the underlying native code (device) initialization, you should
+    not use the "document ready" event to start your application. You should wait for the "device ready"
+    event before you begin your application (if it uses any device APIs); in practice, it is best to wait
+    for both. (See the init-dev.js file in this template for an example of how to do this, it generates
+    a custom "app.Ready" event that you can trigger off of and just forget about the other events.)
+
+    NOTE: *any* library that redefines addEventListener() or fiddles with outstanding events may
+    interfere with capturing the "device ready" event and should, therefore, be placed *BEFORE*
+    the Cordova JS library in the load order.
+
+    ALSO: if you use weinre for debugging (ala the Test tab or your own), you may have to experiment with
+    the placement of the weinre script. Some recommended locations are shown within. If these locations
+    do not work, you may have to experiment. The optimum placement can be app-specific, primarily as a
+    function of the included JavaScript libraries and your initialization.
+-->
 
 </html>
