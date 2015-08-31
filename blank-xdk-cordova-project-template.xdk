@@ -18,6 +18,23 @@
         "cordovaPluginsDirectory": "plugins",
         "cordovaPlugins": [
             {
+                "id": "org.apache.cordova.statusbar",
+                "name": "StatusBar",
+                "version": "?",
+                "originType": "cordova.io",
+                "origin": "org.apache.cordova.statusbar",
+                "gitref": "",
+                "paramvals": {},
+                "selectedState": "Included",
+                "dependsOn": [],
+                "topLevel": true,
+                "cordovaVersion": "?",
+                "permissions": {},
+                "description": "Cordova StatusBar Plugin",
+                "data": {},
+                "dependedBy": []
+             },
+            {
                 "id": "cordova-plugin-device",
                 "version": "?",
                 "selectedState": "Included",
