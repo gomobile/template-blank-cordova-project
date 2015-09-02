@@ -1,13 +1,12 @@
 {
     "project": {
-        "projectSettingsVersion": "1.2",
+        "projectSettingsVersion": "2.0.0",
         "creationData": {
-            "type": "Blank Project",
             "projectTypeName": "com.intel.xdk.projecttype.jsapp",
-            "src": "",
+            "src": "jsapp/template-blank-cordova-project/sample.zip",
             "projectGuid": "00000000-0000-0000-0000-000000000000",
-            "lastModifiedDate": 1429209000596,
-            "creationDate": 1394489018036
+            "lastModifiedDate": 1440312957361,
+            "creationDate": 1440312891215
         },
         "XDK-app-designer": "false",
         "sourceDirectory": "www",
@@ -42,16 +41,30 @@
                 "data": {},
                 "paramvals": {},
                 "dependsOn": [],
-                "dependedBy": []
+                "dependedBy": [],
+                "originType": "cordova.io",
+                "origin": "cordova-plugin-device",
+                "permissions": {},
+                "topLevel": true,
+                "gitref": "",
+                "name": "Device",
+                "description": "Cordova Device Plugin"
             },
             {
-                "id": "org.apache.cordova.splashscreen",
+                "id": "cordova-plugin-splashscreen",
                 "version": "?",
                 "selectedState": "Included",
                 "data": {},
                 "paramvals": {},
                 "dependsOn": [],
-                "dependedBy": []
+                "dependedBy": [],
+                "originType": "cordova.io",
+                "origin": "cordova-plugin-splashscreen",
+                "permissions": {},
+                "topLevel": true,
+                "gitref": "",
+                "name": "Splashscreen",
+                "description": "Cordova Splashscreen Plugin"
             }
         ],
         "buildConfigurations": {
@@ -65,18 +78,20 @@
                     "android-installLocation": "auto"
                 },
                 "isActive_": true,
-                "appName_": "Blank Intel XDK Cordova Template",
+                "appName_": "blank-cordova",
                 "appID_": "xdk.intel.blank.template.crosswalk",
-                "appAccess_": [
-                    {
-                        "origin": "*"
-                    }
-                ],
+                "appAccess_": {
+                    "mode": "legacy",
+                    "network": [
+                        "*"
+                    ],
+                    "intents": [],
+                    "navigation": []
+                },
                 "icons_": [],
                 "splashes_": [],
                 "addlPermissions_": "",
                 "excludedLibraries_": "",
-                "iosProvs_": [],
                 "cordovaCLIVersion_": "?",
                 "crosswalkVersion_": "?",
                 "appVersion_": "0.0.1",
@@ -94,18 +109,20 @@
                     "android-installLocation": "auto"
                 },
                 "isActive_": true,
-                "appName_": "Blank Intel XDK Cordova Template",
+                "appName_": "blank-cordova",
                 "appID_": "xdk.intel.blank.template",
-                "appAccess_": [
-                    {
-                        "origin": "*"
-                    }
-                ],
+                "appAccess_": {
+                    "mode": "legacy",
+                    "network": [
+                        "*"
+                    ],
+                    "intents": [],
+                    "navigation": []
+                },
                 "icons_": [],
                 "splashes_": [],
                 "addlPermissions_": "",
                 "excludedLibraries_": "",
-                "iosProvs_": [],
                 "cordovaCLIVersion_": "?",
                 "crosswalkVersion_": "?",
                 "appVersion_": "0.0.1",
@@ -122,13 +139,16 @@
                     "ios-configuration": "adhoc"
                 },
                 "isActive_": true,
-                "appName_": "Blank Intel XDK Cordova Template",
+                "appName_": "blank-cordova",
                 "appID_": "xdk.intel.blank.template",
-                "appAccess_": [
-                    {
-                        "origin": "*"
-                    }
-                ],
+                "appAccess_": {
+                    "mode": "legacy",
+                    "network": [
+                        "*"
+                    ],
+                    "intents": [],
+                    "navigation": []
+                },
                 "icons_": [],
                 "splashes_": [],
                 "addlPermissions_": "",
@@ -149,18 +169,20 @@
                     "windows-publisher-id": ""
                 },
                 "isActive_": true,
-                "appName_": "Blank Intel XDK Cordova Template",
+                "appName_": "blank-cordova",
                 "appID_": "xdk.intel.blank.template",
-                "appAccess_": [
-                    {
-                        "origin": "*"
-                    }
-                ],
+                "appAccess_": {
+                    "mode": "legacy",
+                    "network": [
+                        "*"
+                    ],
+                    "intents": [],
+                    "navigation": []
+                },
                 "icons_": [],
                 "splashes_": [],
                 "addlPermissions_": "",
                 "excludedLibraries_": "",
-                "iosProvs_": [],
                 "cordovaCLIVersion_": "?",
                 "crosswalkVersion_": "?",
                 "appVersion_": "0.0.0.1",
@@ -173,13 +195,16 @@
                 "name_": "WebApp",
                 "preferences_": {},
                 "isActive_": false,
-                "appName_": "blank-xdk-cordova-project-template",
+                "appName_": "blank-cordova",
                 "appID_": "not.yet.specified",
-                "appAccess_": [
-                    {
-                        "origin": "*"
-                    }
-                ],
+                "appAccess_": {
+                    "mode": "legacy",
+                    "network": [
+                        "*"
+                    ],
+                    "intents": [],
+                    "navigation": []
+                },
                 "icons_": [],
                 "splashes_": [],
                 "addlPermissions_": "",
@@ -193,13 +218,16 @@
                 "name_": "Chrome",
                 "preferences_": {},
                 "isActive_": false,
-                "appName_": "blank-xdk-cordova-project-template",
+                "appName_": "blank-cordova",
                 "appID_": "not.yet.specified",
-                "appAccess_": [
-                    {
-                        "origin": "*"
-                    }
-                ],
+                "appAccess_": {
+                    "mode": "legacy",
+                    "network": [
+                        "*"
+                    ],
+                    "intents": [],
+                    "navigation": []
+                },
                 "icons_": [],
                 "splashes_": [],
                 "addlPermissions_": "",
@@ -213,13 +241,16 @@
                 "name_": "Firefox",
                 "preferences_": {},
                 "isActive_": false,
-                "appName_": "blank-xdk-cordova-project-template",
+                "appName_": "blank-cordova",
                 "appID_": "not.yet.specified",
-                "appAccess_": [
-                    {
-                        "origin": "*"
-                    }
-                ],
+                "appAccess_": {
+                    "mode": "legacy",
+                    "network": [
+                        "*"
+                    ],
+                    "intents": [],
+                    "navigation": []
+                },
                 "icons_": [],
                 "splashes_": [],
                 "addlPermissions_": "",
@@ -233,23 +264,51 @@
                 "name_": "Facebook",
                 "preferences_": {},
                 "isActive_": false,
-                "appName_": "blank-xdk-cordova-project-template",
+                "appName_": "blank-cordova",
                 "appID_": "not.yet.specified",
-                "appAccess_": [
-                    {
-                        "origin": "*"
-                    }
-                ],
+                "appAccess_": {
+                    "mode": "legacy",
+                    "network": [
+                        "*"
+                    ],
+                    "intents": [],
+                    "navigation": []
+                },
                 "icons_": [],
                 "splashes_": [],
                 "addlPermissions_": "",
                 "excludedLibraries_": "",
                 "appAuthor_": "Intel XDK",
                 "appVersion_": "0.0.1"
+            },
+            "WP81": {
+                "platform_": "wp81",
+                "runtime_": "Cordova 3.x",
+                "name_": "WP81",
+                "preferences_": {},
+                "isActive_": true,
+                "appName_": "blank-cordova",
+                "appID_": "not.yet.specified",
+                "appAccess_": {
+                    "mode": "legacy",
+                    "network": [
+                        "*"
+                    ],
+                    "intents": [],
+                    "navigation": []
+                },
+                "icons_": [],
+                "splashes_": [],
+                "addlPermissions_": "",
+                "excludedLibraries_": "",
+                "appVersion_": "0.0.0.1",
+                "cordovaCLIVersion_": "?",
+                "appAuthor_": "Intel XDK"
             }
         },
         "gameAssetDirectory": "asset",
         "gameMetadata": {},
-        "projectTags": []
+        "projectTags": [],
+        "testDirectory": "test"
     }
 }
