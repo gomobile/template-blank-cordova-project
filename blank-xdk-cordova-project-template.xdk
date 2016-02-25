@@ -33,7 +33,7 @@
                 "description": "Cordova StatusBar Plugin",
                 "data": {},
                 "dependedBy": []
-             },
+            },
             {
                 "id": "cordova-plugin-device",
                 "version": "?",
@@ -68,55 +68,32 @@
             }
         ],
         "buildConfigurations": {
-            "Android-Crosswalk": {
+            "Android": {
                 "platform_": "android",
                 "runtime_": "Crosswalk with Cordova 3.x",
                 "name_": "Android-Crosswalk",
                 "preferences_": {
                     "android-minSdkVersion": "14",
-                    "android-targetSdkVersion": "19",
-                    "android-installLocation": "auto"
-                },
-                "isActive_": true,
-                "appName_": "blank-cordova",
-                "appID_": "xdk.intel.blank.template.crosswalk",
-                "appAccess_": {
-                    "mode": "legacy",
-                    "network": [
-                        "*"
-                    ],
-                    "intents": [],
-                    "navigation": []
-                },
-                "icons_": [],
-                "splashes_": [],
-                "addlPermissions_": "",
-                "excludedLibraries_": "",
-                "cordovaCLIVersion_": "?",
-                "crosswalkVersion_": "?",
-                "appVersion_": "0.0.1",
-                "appDescription_": "Universal init code for Intel XDK and Cordova device ready detection.",
-                "appAuthor_": "Intel XDK",
-                "appVersionCode_": "1"
-            },
-            "Android": {
-                "platform_": "android",
-                "runtime_": "Cordova 3.x",
-                "name_": "Android",
-                "preferences_": {
-                    "android-minSdkVersion": "14",
-                    "android-targetSdkVersion": "19",
+                    "android-targetSdkVersion": "23",
                     "android-installLocation": "auto"
                 },
                 "isActive_": true,
                 "appName_": "blank-cordova",
                 "appID_": "xdk.intel.blank.template",
                 "appAccess_": {
-                    "mode": "legacy",
+                    "mode": "whitelist",
                     "network": [
                         "*"
                     ],
-                    "intents": [],
+                    "intents": [
+                        "http://*/*",
+                        "https://*/*",
+                        "tel:*",
+                        "sms:*",
+                        "mailto:*",
+                        "geo:*",
+                        "market:*"
+                    ],
                     "navigation": []
                 },
                 "icons_": [],
@@ -135,7 +112,7 @@
                 "runtime_": "Cordova 3.x",
                 "name_": "iOS",
                 "preferences_": {
-                    "ios-target": "6",
+                    "ios-target": "8.0",
                     "ios-configuration": "adhoc"
                 },
                 "isActive_": true,
@@ -146,7 +123,16 @@
                     "network": [
                         "*"
                     ],
-                    "intents": [],
+                    "intents": [
+                        "http://*/*",
+                        "https://*/*",
+                        "tel:*",
+                        "sms:*",
+                        "mailto:*",
+                        "geo:*",
+                        "itms:*",
+                        "itms-apps:*"
+                    ],
                     "navigation": []
                 },
                 "icons_": [],
@@ -176,7 +162,14 @@
                     "network": [
                         "*"
                     ],
-                    "intents": [],
+                    "intents": [
+                        "http://*/*",
+                        "https://*/*",
+                        "tel:*",
+                        "sms:*",
+                        "mailto:*",
+                        "geo:*"
+                    ],
                     "navigation": []
                 },
                 "icons_": [],
