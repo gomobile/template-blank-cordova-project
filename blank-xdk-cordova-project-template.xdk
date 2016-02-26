@@ -1,6 +1,6 @@
 {
     "project": {
-        "projectSettingsVersion": "2.0.0",
+        "projectSettingsVersion": "3.0.0",
         "creationData": {
             "projectTypeName": "com.intel.xdk.projecttype.jsapp",
             "src": "jsapp/template-blank-cordova-project/sample.zip",
