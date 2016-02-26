@@ -71,7 +71,7 @@
             "Android": {
                 "platform_": "android",
                 "runtime_": "Crosswalk with Cordova 3.x",
-                "name_": "Android-Crosswalk",
+                "name_": "Android",
                 "preferences_": {
                     "android-minSdkVersion": "14",
                     "android-targetSdkVersion": "23",
