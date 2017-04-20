@@ -3,12 +3,10 @@
         "projectSettingsVersion": "3.0.0",
         "creationData": {
             "projectTypeName": "com.intel.xdk.projecttype.jsapp",
-            "src": "jsapp/template-blank-cordova-project/sample.zip",
             "projectGuid": "00000000-0000-0000-0000-000000000000",
             "lastModifiedDate": 1440312957361,
             "creationDate": 1440312891215
         },
-        "XDK-app-designer": "false",
         "sourceDirectory": "www",
         "startFile": "index.html",
         "projectFiles": {},
