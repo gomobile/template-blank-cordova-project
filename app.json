@@ -1,7 +1,7 @@
 {
   "title" : "Blank Cordova Template",
   "projectTypeName" : "com.intel.xdk.projecttype.jsapp",
-  "sample" : flase,
+  "sample" : false,
   "template" : true,
   "visible" : true,
   "sortWeight" : "0.0",
